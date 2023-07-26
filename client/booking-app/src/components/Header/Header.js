@@ -13,13 +13,13 @@ return(
     <nav>
         <div className={styles.navbar}>
             
+            <div className={styles.logo}><a href="/">Mykonos Spa & Resort</a></div>
             <ul className={styles.links}>
                 <li><a href="/">Home</a></li>
                 <li><a href="/">Gallery</a></li>
                 <li><a href="/">About</a></li>
                 <li><a href="/">Contact</a></li>
             </ul>
-            <div className={styles.logo}><a href="/">Mykonos Spa & Resort</a></div>
             <a href='/' className={styles.actionBtn}>Book Now</a>
             <div className={styles.toggleBtn} onClick={handleClick}>
             <i className={click ? "fas fa-times" : "fas fa-bars"}/>
