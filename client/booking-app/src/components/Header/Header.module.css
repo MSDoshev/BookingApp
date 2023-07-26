@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Courgette&family=Dancing+Script&family=Great+Vibes&display=swap');
+
+li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 1rem;
+}
+a:hover{
+    color: orange;
+}
+.navbar{
+    width: 100%;
+    height: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+}
+.navbar .logo a {
+    font-size: 2rem;
+    /* font-weight: bold; */
+    /* font-family: 'Dancing Script', cursive; */
+    font-family: 'Great Vibes', cursive;
+    /* font-family: 'Courgette', cursive; */
+}
+
+.navbar .links{
+    display: flex;
+    gap: 2rem;
+}
+.navbar .toggleBtn{
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+
+}
+.actionBtn{
+    background-color: orange;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    outline: none;
+    border: none;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: scale 0.2 ease;
+}
+.actionBtn:hover{
+    scale: 1.05;
+    color: #fff;
+}
+
+.actionBtn:active{
+    scale: 0.95;
+}
+
+.dropdownMenu{
+    display: none;
+   position: absolute;
+   right: 2rem;
+   top: 60px; 
+   height: 0;
+   width: 300px;
+   background: rgba(255, 255, 255, 0.1);
+   backdrop-filter: blur(15px);
+   border-radius: 10px;
+   overflow: hidden;
+   transition: height 0.2s ease;
+}
+.dropdownMenu.open{
+    height: 240px;
+}
+
+.dropdownMenu li{
+    padding: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.dropdownMenu .actionBtn{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+}
+
+@media(max-width: 992px){
+    .navbar .links,
+    .navbar .actionBtn{
+        display: none;
+    }
+
+    .navbar .toggleBtn{
+        display: block;
+    }
+    .dropdownMenu{
+        display: block;
+    }
+}
+
+@media(max-width: 576px){
+    .dropdownMenu{
+        left: 2rem;
+        width: unset;
+    }
+}

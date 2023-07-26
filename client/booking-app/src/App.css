@@ -1,0 +1,15 @@
+.App {
+  text-align: center;
+}
+.body{
+  height: 100vh;
+  background-color: #000;
+  background-image: url("https://cf.bstatic.com/xdata/images/hotel/max1024x768/422181199.jpg?k=ddc04de62690aac0ce9bca9be230b055ba796954f94538e54ea69a4cc37cbd37&o=&hp=1");
+  background-size: cover;
+  background-position: center;
+}
+header{
+  position: relative;
+  padding: 0 2rem;
+
+}
