@@ -9,7 +9,7 @@ export const Home = () => {
         <section className={styles.slogan}>
             <h1>Abort! Quit the job and come stay at our Mykonos Spa and Resort.</h1>
             <div className={styles.btnGallery}>
-                <a href="#">Contact Us</a>
+                <a href="/">Contact Us</a>
             </div>
 
         </section>
