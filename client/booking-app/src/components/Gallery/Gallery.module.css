@@ -1,0 +1,24 @@
+/* src/gallery.css */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Display 3 pictures per row */
+    gap: 10px;
+    width: 90%; /* Set the gallery width to 90% of the screen */
+    margin: 0 auto; /* Center the gallery horizontally */
+  }
+  
+  .gallery img {
+    width: 100%; /* Set the image width to 100% of its container */
+    height: auto;
+  }
+
+  .title{
+    padding: 35px 100px;
+    width: 90%;
+  }
+  .title h2{
+    color: #fff;
+    font-size: 2.5rem;
+
+    
+  }
