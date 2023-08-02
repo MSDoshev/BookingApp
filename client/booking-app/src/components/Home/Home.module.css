@@ -8,6 +8,18 @@
     justify-content: center;
     text-align: center;
 }
+
+.slogan::before{
+    z-index: 888;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(transparent, #202834);
+}
+
 .btnGallery{
 
     background-color: orange;
@@ -15,4 +27,20 @@
     border-radius: 20px;
     border: none;
 
+}
+
+.about{
+    color: #fff;
+    background: #202834;
+    padding: 35px 200px;
+    transition: 0.3s ease;
+}
+
+.about h2{
+    font-size: 3em;
+    font-weight: 600;
+}
+
+.about p{
+    margin: 25px 0;
 }
