@@ -29,10 +29,11 @@ return(
         </div>
 
         <div className={`${styles.dropdownMenu} ${click ? styles.open : ""}`}>
-            <li><a href="/">Home</a></li>
-            <li><a href="/">Gallery</a></li>
-            <li><a href="/">About</a></li>
-            <li><a href="/">Contact</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/">Gallery</a></li>
+                <li><a href="/">Villas</a></li>
+                <li><a href="/">The Island</a></li>
+                <li><a href="/">Contact</a></li>
             <li><a href='/' className={styles.actionBtn}>Book Now</a></li>
         </div>
     </nav> 
