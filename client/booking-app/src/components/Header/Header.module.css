@@ -76,7 +76,7 @@ a:hover{
    transition: height 0.2s ease;
 }
 .dropdownMenu.open{
-    height: 240px;
+    height: 280px;
 }
 
 .dropdownMenu li{

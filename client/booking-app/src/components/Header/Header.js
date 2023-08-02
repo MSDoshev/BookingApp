@@ -19,7 +19,6 @@ return(
                 <li><a href="/">Gallery</a></li>
                 <li><a href="/">Villas</a></li>
                 <li><a href="/">The Island</a></li>
-                <li><a href="/">About</a></li>
                 <li><a href="/">Contact</a></li>
             </ul>
             <a href='/' className={styles.actionBtn}>Book Now</a>
