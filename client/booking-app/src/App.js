@@ -14,7 +14,7 @@ function App() {
   }, [location]);
 
   return (
-    <div className={`body ${isHomePage ? 'home-background' : 'gallery-background'}`}>
+    <div className={`body ${isHomePage ? 'home-background' : 'background'}`}>
       <header>
         <Header />
       </header>
