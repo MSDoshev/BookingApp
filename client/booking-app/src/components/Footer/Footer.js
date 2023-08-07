@@ -1,10 +1,10 @@
 import styles from "./Footer.module.css";
 
 export const Footer = () => {
-    return(
+    return (
         <div className={styles.footer}>
             <div className={styles.left}>
-               <h1><a href="/">Mykonos Spa & Resort</a></h1> 
+                <h1><a href="/">Mykonos Spa & Resort</a></h1>
             </div>
 
             <ul className={styles.right}>

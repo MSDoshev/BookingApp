@@ -1,24 +1,26 @@
-.slogan{
+.slogan {
     height: calc(100vh - 60px);
     color: #fff;
-    display:flex;
+    display: flex;
     width: 100%;
     flex-direction: column;
-    align-items:center;
+    align-items: center;
     justify-content: center;
     text-align: center;
-}
-
-.slogan::before{
+    overflow: hidden; /* Hide any potential overflow */
+  }
+  
+  .slogan::before {
     z-index: 888;
     content: '';
     position: absolute;
-    width: 100%;
+    width: 100vw; /* Use vw (viewport width) instead of 100% */
     height: 50px;
     bottom: 0;
     left: 0;
     background: linear-gradient(transparent, #202834);
-}
+  }
+  
 
 .btnGallery{
 
@@ -44,3 +46,19 @@
 .about p{
     margin: 25px 0;
 }
+
+@media (max-width: 768px) {
+    .about {
+      padding: 35px 20px; /* Adjust padding for smaller screens */
+      text-align: center; /* Center-align content on smaller screens */
+    }
+  
+    .about h2 {
+      font-size: 2em; /* Reduce font size for smaller screens */
+      margin-bottom: 20px; /* Adjust bottom margin for smaller screens */
+    }
+  
+    .about p {
+      margin: 10px 0; /* Adjust margin for smaller screens */
+    }
+  }

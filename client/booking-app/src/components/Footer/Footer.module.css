@@ -1,72 +1,70 @@
-.footer{
-    display: grid;
-    grid-template-columns: 30% 70%; 
-    padding: 35px 200px;
-    color: #fff;
-    background: #262626;
-}
-.right{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); 
-    column-gap: 10px;
-    
-
-}
-.left{
-    justify-content: center;
+.footer {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  padding: 35px 200px;
+  color: #fff;
+  background: #262626;
 }
 
-h2{
-    font-weight: 900;
-    font-size: 16px;
+.right {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 10px;
 }
-.footer ul{
-    list-style: none;
-    padding-left: 0;
+
+.left {
+  justify-content: center;
 }
-.footer li{
-    line-height: 2em;
+
+h2 {
+  font-weight: 900;
+  font-size: 16px;
 }
-.footer a{
-    text-decoration: none;
+
+.footer ul {
+  list-style: none;
+  padding-left: 0;
 }
-.box a{
-    text-decoration: none;
+
+.footer li {
+  line-height: 2em;
 }
+
+.footer a {
+  text-decoration: none;
+}
+
+.box a {
+  text-decoration: none;
+}
+
 .rights {
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    color: #999;
-    padding-top: 50px;
-    grid-column: span 2; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #999;
+  padding-top: 50px;
+  grid-column: span 2;
+}
+
+@media (max-width: 768px) {
+  .footer {
+      grid-template-columns: 1fr;
+      padding: 35px 50px;
   }
 
+  .right {
+      grid-template-columns: 1fr;
+  }
 
-  @media (max-width: 768px) {
-    .footer {
-      grid-template-columns: 1fr;
-    }
-  
-    .right {
-      grid-template-columns: 1fr;
-    }
-  
-    .left {
-      order: 0; /* Change the order for smaller screens */
+  .left {
+      order: 0;
       justify-content: center;
-    }
-  
-    .rights {
-      grid-column: span 1; /* Span only one column for smaller screens */
-      text-align: center; /* Center the text for smaller screens */
-      padding: 15px 0; /* Adjust padding for smaller screens */
-    }
   }
-  
-  
-  
-  
-  
-  
 
+  .rights {
+      grid-column: span 1;
+      text-align: center;
+      padding: 15px 0;
+  }
+}
