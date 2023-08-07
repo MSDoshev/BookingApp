@@ -12,7 +12,9 @@ const handleClick = () => setClick(!click);
 return(
     <nav>
         <div className={styles.navbar}>
-            <div className={styles.logo}><a href="/">Mykonos Spa & Resort</a></div>
+            <div className={styles.logo}>
+                <a href="/">Mykonos Spa & Resort</a>
+            </div>
 
             <ul className={styles.links}>
                 <li><a href="/">Home</a></li>

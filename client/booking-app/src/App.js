@@ -4,6 +4,7 @@ import { Route, Routes, useLocation } from 'react-router-dom';
 import { Header } from './components/Header/Header';
 import { Home } from './components/Home/Home';
 import { Gallery } from './components/Gallery/Gallery';
+import { Footer } from './components/Footer/Footer';
 
 function App() {
   const [isHomePage, setIsHomePage] = useState(false);
@@ -24,6 +25,7 @@ function App() {
           <Route path='/gallery' element={<Gallery />} />
         </Routes>
       </main>
+      <Footer/>
     </div>
   );
 }
