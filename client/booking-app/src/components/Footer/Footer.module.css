@@ -33,16 +33,40 @@ h2{
 .box a{
     text-decoration: none;
 }
-.h-box{
-    column-count: 2;
-    column-gap: 1.25em;
-}
 .rights {
-    display: flex; /* Change display to flex */
-    justify-content: center; /* Center content horizontally */
-    align-items: center; /* Center content vertically */
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
     color: #999;
     padding-top: 50px;
-    grid-column: span 2; /* Span the entire width of the grid */
+    grid-column: span 2; 
   }
+
+
+  @media (max-width: 768px) {
+    .footer {
+      grid-template-columns: 1fr;
+    }
+  
+    .right {
+      grid-template-columns: 1fr;
+    }
+  
+    .left {
+      order: 0; /* Change the order for smaller screens */
+      justify-content: center;
+    }
+  
+    .rights {
+      grid-column: span 1; /* Span only one column for smaller screens */
+      text-align: center; /* Center the text for smaller screens */
+      padding: 15px 0; /* Adjust padding for smaller screens */
+    }
+  }
+  
+  
+  
+  
+  
+  
 
