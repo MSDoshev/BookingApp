@@ -1,9 +1,17 @@
+.heading{
+    color: #fff;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    height: 30vh;
+}
+
 .infoH{
     background-color: #1a6985;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;
-    clip-path: polygon(0 0%, 0% 0, 100% 0%, 100% 90%, 60% 100%, 0 90%);
+    clip-path: polygon(0% 10%, 20% 0%, 100% 0%, 100% 90%, 60% 100%, 0% 90%);
     padding: 50px;
 }
 .infoH h2{
@@ -65,4 +73,40 @@
     display: block; /* Ensure proper spacing */
     margin: 0 auto; /* Center the image horizontally */
     padding: 25px;
+}
+
+
+@media (max-width: 768px) {
+    .subInfo {
+        padding: 15px;
+    }
+
+    .subInfo h2 {
+        font-size: 1.2rem; 
+    }
+
+    .subInfo p {
+        font-size: 0.9rem; 
+    }
+    .infoH{
+        grid-template-columns: none;
+        grid-template-rows: 70% 20%;
+        padding: 10% 10% 40% 10%;
+    }
+    .infoL{
+        grid-template-columns: none;
+        grid-template-rows: 70% 30%;
+        padding: 40% 10% 30% 10%;
+        
+    }
+    .infoN{
+        grid-template-columns: none;
+        grid-template-rows: 30% 70%;
+        padding: 10%;
+        
+    }
+    img {
+        max-width: 100%;
+        padding: 0;
+    }
 }
