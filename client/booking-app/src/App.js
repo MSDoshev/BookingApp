@@ -5,6 +5,7 @@ import { Header } from './components/Header/Header';
 import { Home } from './components/Home/Home';
 import { Gallery } from './components/Gallery/Gallery';
 import { Footer } from './components/Footer/Footer';
+import { TheIsland } from './components/TheIsland/TheIsland';
 
 function App() {
   const [isHomePage, setIsHomePage] = useState(false);
@@ -23,6 +24,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/gallery' element={<Gallery />} />
+          <Route path='/theIsland' element={<TheIsland />} />
         </Routes>
       </main>
       <Footer/>
