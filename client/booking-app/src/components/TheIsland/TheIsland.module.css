@@ -1,3 +1,68 @@
-.info{
+.infoH{
     background-color: #1a6985;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    clip-path: polygon(0 0%, 0% 0, 100% 0%, 100% 90%, 60% 100%, 0 90%);
+    padding: 50px;
+}
+.infoH h2{
+    color:#fff;
+    font-size: 2rem;
+    justify-content: center;
+    align-items: center;
+}
+.infoH img{
+   
+    max-width: 80%; /* Constrain the image's maximum width */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Ensure proper spacing */
+    margin: 0 auto; /* Center the image horizontally */
+    padding: 25px;
+    
+}
+.subInfo {
+    color: #fff;
+    padding: 30px 100px; /* Reduce padding for better fit */
+    transition: 0.3s ease;
+}
+
+.subInfo h2 {
+    font-size: 1.5rem; /* Reduce font size for better fit */
+    margin-bottom: 10px; /* Adjust bottom margin for better fit */
+}
+
+.subInfo p {
+    font-size: 1rem; /* Adjust font size for better fit */
+}
+
+.infoN{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    padding: 50px;
+}
+.infoN img{
+    max-width: 80%; /* Constrain the image's maximum width */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Ensure proper spacing */
+    margin: 0 auto; /* Center the image horizontally */
+    padding: 25px;
+}
+
+.infoL{
+    background-color: #1a6985;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    clip-path: polygon(0% 10%, 40% 0%, 100% 10%, 100% 100%, 60% 100%, 0 100%);
+    padding: 50px;
+}
+
+.infoL img{
+    max-width: 80%; /* Constrain the image's maximum width */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Ensure proper spacing */
+    margin: 0 auto; /* Center the image horizontally */
+    padding: 25px;
 }
