@@ -13,7 +13,7 @@ export const TheIsland = () => {
         <>
         <div className={styles.heading}>
             
-            <h1>Mykonos Island</h1>
+            <h1 data-aos="fade" data-aos-duration="1500" >Mykonos Island</h1>
         </div>
 
             <div className={styles.infoH}>
