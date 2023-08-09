@@ -12,16 +12,25 @@ a{
 a:hover{
     color: orange;
 }
-.navbar{
+.navbar {
     width: 100%;
     height: 60px;
-    max-width: 1600px;
     margin: 0 auto;
-    display:flex;
-    align-items:center;
+    display: flex;
+    align-items: center;
     justify-content: space-between;
-}
-
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  .sticky {
+    position: fixed;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 100%;
+    z-index: 1000;
+    transition: background-color 0.3s ease; 
+  }
 .navbar .logo a {
     font-size: 1.5rem;
     /* font-weight: bold; */
@@ -62,22 +71,23 @@ a:hover{
     scale: 0.95;
 }
 
-.dropdownMenu{
+.dropdownMenu {
     display: none;
-   position: absolute;
-   right: 2rem;
-   top: 60px; 
-   height: 0;
-   width: 300px;
-   background: rgba(255, 255, 255, 0.1);
-   backdrop-filter: blur(15px);
-   border-radius: 10px;
-   overflow: hidden;
-   transition: height 0.2s ease;
-}
+    position: fixed;
+    top: 60px;
+    right: 2rem;
+    height: 0;
+    width: 300px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: height 0.2s ease;
+  }
 .dropdownMenu.open{
-    height: 2px;
+    height: 240px;
 }
+
 
 .dropdownMenu li{
     padding: 0.7rem;
@@ -104,6 +114,22 @@ a:hover{
     .dropdownMenu{
         display: block;
     }
+    .dropdownMenu .actionBtn {
+        
+        background-color: orange;
+        color: #fff;
+        padding: 0.5rem 1rem;
+        outline: none;
+        border: none;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: scale 0.2 ease;
+        width: 100%; 
+        display: flex;
+        justify-content: center;
+      }
 }
 
 @media(max-width: 576px){
