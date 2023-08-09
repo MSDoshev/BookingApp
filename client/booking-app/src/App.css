@@ -7,19 +7,27 @@
 .body {
   height: 100%;
   width: 100%;
-  background-color: #202834;
   
 }
 
-/* Add a new CSS class to set the image background for the home page */
-.home-background {
-  background-image: url("https://cf.bstatic.com/xdata/images/hotel/max1024x768/422181199.jpg?k=ddc04de62690aac0ce9bca9be230b055ba796954f94538e54ea69a4cc37cbd37&o=&hp=1");
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
-}
 
-/* Add a new CSS class to set the black background for other pages */
 .background {
   background-image: none;
+  background-color: #202834;
+}
+
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; 
+  overflow: hidden;
+}
+
+.video-background video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
 }
