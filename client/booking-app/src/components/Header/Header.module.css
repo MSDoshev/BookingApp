@@ -22,6 +22,7 @@ a:hover{
     position: sticky;
     top: 0;
     z-index: 1000;
+    
   }
   .sticky {
     position: fixed;
@@ -29,10 +30,11 @@ a:hover{
     background-color: rgba(0, 0, 0, 0.8);
     width: 100%;
     z-index: 1000;
-    transition: background-color 0.3s ease; 
+    transition: background-color 2s ease; 
   }
 .navbar .logo a {
     font-size: 1.5rem;
+    margin-left: 80px;
     /* font-weight: bold; */
     /* font-family: 'Dancing Script', cursive; */
     font-family: 'Great Vibes', cursive;
@@ -61,7 +63,10 @@ a:hover{
     font-weight: bold;
     cursor: pointer;
     transition: scale 0.2 ease;
+    margin-right: 80px;
 }
+
+
 .actionBtn:hover{
     scale: 1.05;
     color: #fff;
@@ -83,6 +88,7 @@ a:hover{
     border-radius: 10px;
     overflow: hidden;
     transition: height 0.2s ease;
+    
   }
 .dropdownMenu.open{
     height: 280px;
@@ -110,6 +116,7 @@ a:hover{
 
     .navbar .toggleBtn{
         display: block;
+        margin-right: 40px;
     }
     .dropdownMenu{
         display: block;
@@ -125,16 +132,27 @@ a:hover{
         font-size: 0.8rem;
         font-weight: bold;
         cursor: pointer;
-        transition: scale 0.2 ease;
+        transition: scale 0.3 ease;
         width: 100%; 
         display: flex;
         justify-content: center;
+        margin:0;
       }
+      
 }
 
 @media(max-width: 576px){
+
+    
     .dropdownMenu{
         left: 2rem;
         width: unset;
+    }
+    .navbar .logo a{
+        margin-left: 10px;
+      }
+    .navbar .toggleBtn{
+        margin-right: 10px ;
+    
     }
 }

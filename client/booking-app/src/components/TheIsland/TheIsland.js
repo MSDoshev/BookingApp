@@ -11,7 +11,7 @@ export const TheIsland = () => {
 
     return(
         <>
-        <div className={styles.heading}>
+        <div className={styles.title}>
             
             <h1 data-aos="fade" data-aos-duration="1500" >Mykonos Island</h1>
         </div>
@@ -43,7 +43,7 @@ export const TheIsland = () => {
 
                 Mauris a suscipit elit. Integer vehicula nulla eu nibh commodo posuere. Aenean eu metus malesuada, aliquam ex ac, dapibus lorem. Maecenas quis felis ex. Sed et lobortis lacus. In gravida tristique tellus, suscipit malesuada nunc pharetra id. Etiam a arcu vehicula, faucibus lorem a, tristique nunc. Morbi ut aliquet sem. In mollis aliquet lobortis. Vestibulum mollis ligula vitae placerat eleifend. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec gravida tellus non mollis lacinia. Proin gravida ipsum quis risus viverra viverra. In vel justo a libero mattis tempus eu ut leo.</p>
                 </div>
-                <img data-aos="fade-left" data-aos-offset="300" data-aos-duration="1500" src="https://www.costacruises.co.uk/content/dam/costa/costa-magazine/article-images/mykonos-beaches/mykonos-spiagge2.jpg.image.1296.974.high.jpg"/>
+                <img data-aos="fade-left"  data-aos-duration="1500" src="https://www.costacruises.co.uk/content/dam/costa/costa-magazine/article-images/mykonos-beaches/mykonos-spiagge2.jpg.image.1296.974.high.jpg"/>
             </div>
         </>
     )

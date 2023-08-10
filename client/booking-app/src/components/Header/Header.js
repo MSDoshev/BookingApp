@@ -36,7 +36,9 @@ export const Header = () => {
         <li><Link to="/theIsland">The Island</Link></li>
         <li><Link to="/">Contact</Link></li>
       </ul>
+     
       <Link to='/' className={styles.actionBtn}>Book Now</Link>
+      
       <div className={styles.toggleBtn} onClick={handleClick}>
         <i className={click ? "fas fa-times" : "fas fa-bars"}/>
       </div>
