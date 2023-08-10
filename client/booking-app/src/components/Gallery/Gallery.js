@@ -61,7 +61,7 @@ export const Gallery = () => {
     return (
         <>
         <div className={styles.title}>
-            <h2> The Gallery</h2>
+            <h1> The Gallery</h1>
         </div>
         <div className={styles.gallery}>
         {images.map((image, index) => (

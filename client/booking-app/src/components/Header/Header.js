@@ -26,18 +26,18 @@ export const Header = () => {
   return (
     <nav className={`${styles.navbar} ${isSticky ? styles.sticky : ""}`}>
       <div className={styles.logo}>
-        <Link to="/">Mykonos Spa & Resort</Link>
+        <Link to="/">Mykonos Villas</Link>
       </div>
 
       <ul className={styles.links}>
         <li><Link to="/">Home</Link></li>
         <li><Link to="/gallery">Gallery</Link></li>
-        <li><Link to="/">Villas</Link></li>
+        <li><Link to="/villas">Villas</Link></li>
         <li><Link to="/theIsland">The Island</Link></li>
         <li><Link to="/">Contact</Link></li>
       </ul>
      
-      <Link to='/' className={styles.actionBtn}>Book Now</Link>
+      <Link to='/villas' className={styles.actionBtn}>Book Now</Link>
       
       <div className={styles.toggleBtn} onClick={handleClick}>
         <i className={click ? "fas fa-times" : "fas fa-bars"}/>
@@ -48,7 +48,7 @@ export const Header = () => {
         <li><Link to="/">Villas</Link></li>
         <li><Link to="/theIsland">The Island</Link></li>
         <li><Link to="/">Contact</Link></li>
-        <li><Link to='/' className={styles.actionBtn}>Book Now</Link></li>
+        <li><Link to='/villas' className={styles.actionBtn}>Book Now</Link></li>
       </div>
     </nav>
   );

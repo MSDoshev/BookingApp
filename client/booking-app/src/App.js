@@ -7,6 +7,7 @@ import { Gallery } from './components/Gallery/Gallery';
 import { Footer } from './components/Footer/Footer';
 import { TheIsland } from './components/TheIsland/TheIsland';
 import video from './assets/video.mp4'
+import { Villas } from './components/Villas/Villas';
 function App() {
   const [isHomePage, setIsHomePage] = useState(false);
   const location = useLocation();
@@ -26,6 +27,7 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/gallery' element={<Gallery />} />
         <Route path='/theIsland' element={<TheIsland />} />
+        <Route path='/villas' element={<Villas />} />
       </Routes>
     </main>
     <Footer/>
