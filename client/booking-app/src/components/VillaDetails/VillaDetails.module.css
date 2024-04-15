@@ -1,0 +1,30 @@
+.title{
+    color: #fff;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    height: 30vh;
+    font-size: 2rem;
+}
+.villaContainer{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    overflow: hidden;
+    padding: 50px;
+}
+.picture{
+    background-color: #1a6985;
+    
+}
+.picture img{
+    max-width: 80%;
+    height: auto;
+    display: block;
+    margin: 0 auto; 
+    padding: 25px; 
+   
+}
+.text{
+    color: #fff;
+}
