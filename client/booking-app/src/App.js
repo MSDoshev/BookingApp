@@ -7,7 +7,7 @@ import { Gallery } from './components/Gallery/Gallery';
 import { Footer } from './components/Footer/Footer';
 import { TheIsland } from './components/TheIsland/TheIsland';
 import { Villas } from './components/Villas/Villas';
-import { VillaDetails } from './components/VillaDetails/VillaDetails';
+import { VillaDetails } from './components/Villas/VillaDetails/VillaDetails';
 
 import { useState, useEffect } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';

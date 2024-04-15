@@ -11,7 +11,7 @@ export const VillaDetails = () => {
    </div>
    <div className={styles.villaContainer}>
    		<div className={styles.picture}> 
-			<img src='https://cdn.lecollectionist.com/lc/production/uploads/photos/house-4309/2021-04-16-eaeb829ab2eebc2b7f26bff0d1505f86.jpg?q=65'/>
+			<img src='https://cdn.lecollectionist.com/lc/production/uploads/photos/house-4309/2021-04-16-eaeb829ab2eebc2b7f26bff0d1505f86.jpg?q=65' alt='Villa'/>
 		</div>
 		<div className={styles.info}> 
 			<div className={styles.text}>
