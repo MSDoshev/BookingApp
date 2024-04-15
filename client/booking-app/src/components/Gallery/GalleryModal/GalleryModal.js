@@ -4,8 +4,6 @@ import { uiActions } from "../../../store/ui-slice";
 
 import styles from "./GalleryModal.module.css";
 
-
-
 export default function GalleryModal({ navigateImage, image }) {
   const dispatch = useDispatch();
 

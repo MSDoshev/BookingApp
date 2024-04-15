@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import styles from "../Villas.module.css";
+import styles from "./Villa.module.css";
 
 const Villa = ({ villaData }) => {
+  console.log(villaData.description);
   return (
     <div className={styles.villa}>
       <div className={styles.villaContent}>
@@ -14,7 +15,7 @@ const Villa = ({ villaData }) => {
           <Link to={`/villa/${villaData.id}`}>Book Now</Link>
         </div>
       </div>
-      <img src={villaData.image} alt={villaData.title} />
+      <img src={villaData.image.url} alt={villaData.image.alt} />
     </div>
   );
 };
