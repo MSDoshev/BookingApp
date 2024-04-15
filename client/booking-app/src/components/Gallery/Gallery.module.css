@@ -15,8 +15,8 @@
   }
 
   .gallery img:hover {
-    transform: scale(1.02);
-    border:3px solid #fff;
+    transform: scale(1.01);
+    /* border:3px solid #fff; */
     cursor: pointer;
     
   }
@@ -79,7 +79,7 @@
   }
   
      
-  @media(max-width: 992px) {
+  @media(max-width: 1024px) {
     .gallery {
         grid-template-columns: repeat(2, 1fr);
     }

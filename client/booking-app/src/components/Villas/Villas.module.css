@@ -67,7 +67,10 @@
     font-size: 1.5rem;
 }
 
-.villaContent p{
+.villa:nth-child(odd) .villaContent p{
+    color: #fff;
+}
+.villa:nth-child(even) .villaContent p{
     color: #fff;
 }
 

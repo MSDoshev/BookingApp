@@ -33,7 +33,7 @@ export const Footer = () => {
             </ul>
 
             <div className={styles.rights}>
-                <p>All rights reserved &copy; 2023</p>
+                <p>All rights reserved &copy; 2024</p>
             </div>
         </div>
     );

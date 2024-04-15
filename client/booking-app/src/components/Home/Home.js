@@ -7,7 +7,7 @@ export const Home = () => {
     return (
         <>
         <section className={styles.slogan}>
-            <h1>Abort! Quit the job and come stay at our Mykonos Spa and Resort.</h1>
+            <h1>It's your time to relax!</h1>
             <div className={styles.btnGallery}>
                 <a href="/">Contact Us</a>
             </div>
