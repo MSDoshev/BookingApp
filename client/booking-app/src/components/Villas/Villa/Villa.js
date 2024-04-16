@@ -7,12 +7,16 @@ const Villa = ({ villaData }) => {
   return (
     <div className={styles.villa}>
       <div className={styles.villaContent}>
-        <h2>{villaData.title}</h2>
-        <p>{villaData.description}</p>
+        <div className={styles.info}>
+          <h2>{villaData.title}</h2>
+          <p>{villaData.description}</p>
+        </div>
         <div className={styles.vInfo}>
-          <h3>Up to {villaData.capacity} people</h3>
-          <h3>Price from &euro;{villaData.price}</h3>
-          <Link to={`/villa/${villaData.id}`}>Book Now</Link>
+          <div>
+            <h3>Up to {villaData.capacity} people</h3>
+            <h3>Price from &euro;{villaData.price}</h3>
+          </div>
+          <Link to={`/villa/${villaData.id}`} className={styles.bookBtn}>Book Now</Link>
         </div>
       </div>
       <img src={villaData.image.url} alt={villaData.image.alt} />

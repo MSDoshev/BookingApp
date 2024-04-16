@@ -8,7 +8,7 @@ export const Home = () => {
         <>
         <section className={styles.slogan}>
             <h1>It's your time to relax!</h1>
-            <div className={styles.btnGallery}>
+            <div className={styles.btnContact}>
                 <a href="/">Contact Us</a>
             </div>
 

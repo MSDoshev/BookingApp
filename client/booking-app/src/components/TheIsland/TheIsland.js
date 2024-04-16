@@ -17,7 +17,7 @@ export const TheIsland = () => {
         </div>
 
             <div className={styles.infoH}>
-                <div className={styles.subInfo}>
+                <div className={styles.subInfo} >
                 <h2 data-aos="fade" data-aos-duration="1500" >History</h2>
                 <p data-aos="fade-right" data-aos-duration="500" >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempor tincidunt lectus a sollicitudin. Morbi vulputate vel diam bibendum gravida. Nulla pulvinar ultricies sem. Nam non nisl in eros scelerisque volutpat non eget nunc. Nulla massa nunc, consectetur eu faucibus a, rhoncus at dui. Morbi ut nisi lectus. Ut sed ligula sapien. Vivamus porttitor velit eu quam cursus consectetur. Phasellus eget aliquet enim, sed consequat nibh. Morbi iaculis augue vulputate tortor ultrices rutrum. Mauris quis purus viverra, blandit dui quis, euismod metus. Quisque gravida fermentum aliquet.
 
