@@ -1,9 +1,10 @@
 import styles from "./Gallery.module.css";
 
 import { useSelector, useDispatch } from "react-redux";
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 // import ImageGallery from 'react-image-gallery';
 import "react-image-gallery/styles/css/image-gallery.css";
-import { useEffect, useState } from "react";
 import GalleryModal from "./GalleryModal/GalleryModal";
 
 import { uiActions } from "../../store/ui-slice";
@@ -39,9 +40,18 @@ export const Gallery = () => {
   return (
     <>
       <div className={styles.title}>
-        <h1> The Gallery</h1>
+        <motion.h1
+          animate={{ y: [-50, 0], opacity: [0, 1] }}
+          transition={{ ease: "easeOut", duration: 1 }}
+        >
+          The Gallery
+        </motion.h1>
       </div>
-      <div className={styles.gallery}>
+      <motion.div
+        className={styles.gallery}
+        animate={{ y: [200, 0], opacity: [0, 1] }}
+        transition={{ ease: "easeOut", duration: 2 }}
+      >
         {imageData.map((image, index) => (
           <img
             key={index}
@@ -50,7 +60,7 @@ export const Gallery = () => {
             onClick={() => openModal(index)}
           />
         ))}
-      </div>
+      </motion.div>
       {showModal && (
         <GalleryModal
           navigateImage={navigateImage}

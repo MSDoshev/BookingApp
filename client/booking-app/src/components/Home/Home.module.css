@@ -36,9 +36,7 @@
   color: #fff;
   transition: scale 0.2 ease;
 }
-.btnContact a:hover{
-  color: orangered;
-}
+
 
 .about {
   color: #fff;

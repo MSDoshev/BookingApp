@@ -1,7 +1,11 @@
-import styles from "./Villas.module.css";
-import Villa from "./Villa/Villa";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { motion } from "framer-motion";
+
+import styles from "./Villas.module.css";
+
+import Villa from "./Villa/Villa";
+
 import { fetchVillasData } from "../../store/villa-actions";
 
 export const Villas = () => {
@@ -21,7 +25,12 @@ export const Villas = () => {
   return (
     <>
       <div className={styles.title}>
-        <h1>Villas</h1>
+        <motion.h1
+          whileInView={{ y: [-50, 0], opacity: [0, 1] }}
+          transition={{ ease: "easeOut", duration: 1 }}
+        >
+          Villas
+        </motion.h1>
       </div>
       <div
         className={styles.villas}

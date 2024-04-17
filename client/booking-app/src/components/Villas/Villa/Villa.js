@@ -1,12 +1,24 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+
 import styles from "./Villa.module.css";
 
 const Villa = ({ villaData }) => {
-  console.log(villaData.description);
   return (
-    <div className={styles.villa}>
-      <div className={styles.villaContent}>
+    <motion.div
+      animate={{ opacity: [0, 1] }}
+      transition={{ duration: 2 }}
+      className={styles.villa}
+    >
+      <motion.div
+        whileInView={{
+          opacity: [0, 1],
+          // scale: [0.9, 1],
+        }}
+        transition={{ duration: 2 }}
+        className={styles.villaContent}
+      >
         <div className={styles.info}>
           <h2>{villaData.title}</h2>
           <p>{villaData.description}</p>
@@ -16,11 +28,21 @@ const Villa = ({ villaData }) => {
             <h3>Up to {villaData.capacity} people</h3>
             <h3>Price from &euro;{villaData.price}</h3>
           </div>
-          <Link to={`/villa/${villaData.id}`} className={styles.bookBtn}>Book Now</Link>
+          <Link to={`/villa/${villaData.id}`} className={styles.bookBtn}>
+            Book Now
+          </Link>
         </div>
-      </div>
-      <img src={villaData.image.url} alt={villaData.image.alt} />
-    </div>
+      </motion.div>
+      <motion.img
+        whileInView={{
+          opacity: [0, 1],
+          scale: [0.9, 1],
+        }}
+        transition={{ duration: 2 }}
+        src={villaData.image.url}
+        alt={villaData.image.alt}
+      />
+    </motion.div>
   );
 };
 
