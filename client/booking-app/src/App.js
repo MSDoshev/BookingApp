@@ -12,6 +12,7 @@ import { VillaDetails } from "./components/Villas/VillaDetails/VillaDetails";
 import { useState, useEffect } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import Contact from "./components/Contact/Contact";
+import Login from "./components/Login/Login";
 
 function App() {
   const [isHomePage, setIsHomePage] = useState(false);
@@ -34,6 +35,7 @@ function App() {
           <Route path="/villas" element={<Villas />} />
           <Route path="/villa/:id" element={<VillaDetails />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </main>
       <Footer />

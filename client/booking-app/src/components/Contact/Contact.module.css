@@ -1,0 +1,74 @@
+.title {
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30vh;
+  font-size: 2rem;
+}
+.contactContentContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 200px;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 20px;
+}
+.formContainer {
+  border-radius: 5px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+}
+.formContainer h2 {
+  text-align: center;
+}
+
+.formContainer input,
+textarea {
+  color: #fff;
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+  background-color: #202834;
+}
+
+.contactInfoContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-bottom: 20px;
+  padding-right: 100px;
+  color: #fff;
+  border-right: 1px solid #ccc;
+  justify-content: left;
+}
+.contactInfo span {
+  font-weight: bold;
+}
+.contactFormBtn {
+  display: flex;
+  justify-content: flex-end;
+}
+.contactFormBtn button {
+  border: solid 1px #fff;
+  background-color: #202834;
+  color: #fff;
+  cursor: pointer;
+  padding: 5px 25px 5px 25px;
+  font-size: medium;
+  margin-top: 20px;
+}
+.contactFormBtn button:hover {
+  color: #202834;
+  background-color: #fff;
+}
