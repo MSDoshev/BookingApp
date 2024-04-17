@@ -1,16 +1,14 @@
 import styles from "./TheIsland.module.css";
 import { motion } from "framer-motion";
-const fadeInAnimation = {
-  animate: {},
-};
+import { fadeInAnimation } from "../../util/animation";
 
 export const TheIsland = () => {
   return (
     <>
       <div className={styles.title}>
         <motion.h1
-          whileInView={{ y: [-50, 0], opacity: [0, 1] }}
-          transition={{ ease: "easeOut", duration: 1 }}
+          whileInView={fadeInAnimation.title}
+          transition={fadeInAnimation.transition}
         >
           Mykonos Island
         </motion.h1>
@@ -19,11 +17,8 @@ export const TheIsland = () => {
       <div className={styles.infoH}>
         <motion.div
           className={styles.subInfo}
-          whileInView={{
-            opacity: [0, 1],
-            // scale: [0.9, 1],
-          }}
-          transition={{ duration: 2 }}
+          whileInView={fadeInAnimation.text}
+          transition={fadeInAnimation.transition}
         >
           <h2>History</h2>
           <p>
@@ -49,11 +44,8 @@ export const TheIsland = () => {
           </p>
         </motion.div>
         <motion.img
-          whileInView={{
-            opacity: [0, 1],
-            scale: [0.9, 1],
-          }}
-          transition={{ duration: 2 }}
+          whileInView={fadeInAnimation.image}
+          transition={fadeInAnimation.transition}
           src="https://www.mykonostownhousehotel.com/wp-content/uploads/2017/01/mykonos_towhhouse_hotel_paraportiani2.jpg"
           alt="Island event"
         />
@@ -61,20 +53,15 @@ export const TheIsland = () => {
 
       <div className={styles.infoN}>
         <motion.img
-          whileInView={{
-            opacity: [0, 1],
-            scale: [0.9, 1],
-          }}
-          transition={{ duration: 2 }}
+          whileInView={fadeInAnimation.image}
+          transition={fadeInAnimation.transition}
           src="https://www.oluxuryvillas.com/img/article/image/mykonos_nightlife_oluxuryvillas.jpg"
           alt="Island event"
         />
         <motion.div
           className={styles.subInfo}
-          whileInView={{
-            opacity: [0, 1],
-          }}
-          transition={{ duration: 2 }}
+          whileInView={fadeInAnimation.text}
+          transition={fadeInAnimation.transition}
         >
           <h2>Nightlife</h2>
           <p>
@@ -104,10 +91,8 @@ export const TheIsland = () => {
       <div className={styles.infoL}>
         <motion.div
           className={styles.subInfo}
-          whileInView={{
-            opacity: [0, 1],
-          }}
-          transition={{ duration: 2 }}
+          whileInView={fadeInAnimation.text}
+          transition={fadeInAnimation.transition}
         >
           <h2>The Beach</h2>
           <p>
@@ -133,11 +118,8 @@ export const TheIsland = () => {
           </p>
         </motion.div>
         <motion.img
-          whileInView={{
-            opacity: [0, 1],
-            scale: [0.9, 1],
-          }}
-          transition={{ duration: 2 }}
+          whileInView={fadeInAnimation.image}
+          transition={fadeInAnimation.transition}
           src="https://www.costacruises.co.uk/content/dam/costa/costa-magazine/article-images/mykonos-beaches/mykonos-spiagge2.jpg.image.1296.974.high.jpg"
           alt="Island event"
         />

@@ -43,7 +43,7 @@ export const Header = () => {
           <Link to="/theIsland">The Island</Link>
         </li>
         <li>
-          <Link to="/">Contact</Link>
+        <Link to="/contact">Contact Us</Link>
         </li>
       </ul>
 
@@ -68,7 +68,7 @@ export const Header = () => {
           <Link to="/theIsland">The Island</Link>
         </li>
         <li>
-          <Link to="/">Contact</Link>
+          <Link to="/contact">Contact Us</Link>
         </li>
         <li>
           <Link to="/villas" className={styles.actionBtn}>

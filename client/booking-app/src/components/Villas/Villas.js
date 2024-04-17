@@ -7,6 +7,7 @@ import styles from "./Villas.module.css";
 import Villa from "./Villa/Villa";
 
 import { fetchVillasData } from "../../store/villa-actions";
+import { fadeInAnimation } from "../../util/animation";
 
 export const Villas = () => {
   const dispatch = useDispatch();
@@ -26,8 +27,8 @@ export const Villas = () => {
     <>
       <div className={styles.title}>
         <motion.h1
-          whileInView={{ y: [-50, 0], opacity: [0, 1] }}
-          transition={{ ease: "easeOut", duration: 1 }}
+          whileInView={fadeInAnimation.title}
+          transition={fadeInAnimation.transition}
         >
           Villas
         </motion.h1>

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 import styles from "./Villa.module.css";
+import { fadeInAnimation } from "../../../util/animation";
 
 const Villa = ({ villaData }) => {
   return (
@@ -12,11 +13,8 @@ const Villa = ({ villaData }) => {
       className={styles.villa}
     >
       <motion.div
-        whileInView={{
-          opacity: [0, 1],
-          // scale: [0.9, 1],
-        }}
-        transition={{ duration: 2 }}
+        whileInView={fadeInAnimation.text}
+        transition={fadeInAnimation.transition}
         className={styles.villaContent}
       >
         <div className={styles.info}>
@@ -34,11 +32,8 @@ const Villa = ({ villaData }) => {
         </div>
       </motion.div>
       <motion.img
-        whileInView={{
-          opacity: [0, 1],
-          scale: [0.9, 1],
-        }}
-        transition={{ duration: 2 }}
+        whileInView={fadeInAnimation.image}
+        transition={fadeInAnimation.transition}
         src={villaData.image.url}
         alt={villaData.image.alt}
       />
