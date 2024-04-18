@@ -1,8 +1,9 @@
 import { useDispatch } from "react-redux";
-
+import { motion } from "framer-motion";
 import { uiActions } from "../../../store/ui-slice";
 
 import styles from "./GalleryModal.module.css";
+import { fadeInAnimation } from "../../../util/animation";
 
 export default function GalleryModal({ navigateImage, image }) {
   const dispatch = useDispatch();
@@ -12,7 +13,13 @@ export default function GalleryModal({ navigateImage, image }) {
   };
 
   return (
-    <div className={styles.modal}>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={fadeInAnimation.transition}
+      className={styles.modal}
+    >
       <span className={styles.close} onClick={toggleImageHandler}>
         &times;
       </span>
@@ -23,6 +30,6 @@ export default function GalleryModal({ navigateImage, image }) {
       <span className={styles.next} onClick={() => navigateImage("next")}>
         &#10095;
       </span>
-    </div>
+    </motion.div>
   );
 }

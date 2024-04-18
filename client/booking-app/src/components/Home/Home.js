@@ -2,9 +2,10 @@ import { Link } from "react-router-dom";
 import { fadeInAnimation } from "../../util/animation";
 import styles from "./Home.module.css";
 import { motion } from "framer-motion";
+import PageTransitionAnimation from "../PageTransitionAnimation/PageTransitionAnimation";
 export const Home = () => {
   return (
-    <>
+    <PageTransitionAnimation>
       <section className={styles.slogan}>
         <motion.h1
           whileInView={fadeInAnimation.title}
@@ -80,6 +81,6 @@ export const Home = () => {
           nisl. Quisque feugiat nisi at augue vulputate viverra.
         </motion.p>
       </motion.section>
-    </>
+    </PageTransitionAnimation>
   );
 };

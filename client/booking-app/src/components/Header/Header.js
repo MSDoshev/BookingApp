@@ -43,13 +43,12 @@ export const Header = () => {
           <Link to="/theIsland">The Island</Link>
         </li>
         <li>
-        <Link to="/contact">Contact Us</Link>
+          <Link to="/contact">Contact Us</Link>
         </li>
       </ul>
-
-      <Link to="/villas" className={styles.actionBtn}>
-        Book Now
-      </Link>
+      <div className={styles.actionBtn}>
+        <Link to="/login">Login</Link> / <Link to="/register">Register</Link>
+      </div>
 
       <div className={styles.toggleBtn} onClick={handleClick}>
         <i className={click ? "fas fa-times" : "fas fa-bars"} />
@@ -71,9 +70,10 @@ export const Header = () => {
           <Link to="/contact">Contact Us</Link>
         </li>
         <li>
-          <Link to="/villas" className={styles.actionBtn}>
-            Book Now
-          </Link>
+          <div>
+            <Link to="/login">Login</Link> /{" "}
+            <Link to="/register">Register</Link>
+          </div>
         </li>
       </div>
     </nav>

@@ -59,29 +59,18 @@ li {
   color: orange;
 }
 .actionBtn {
-  background-color: orange;
   color: #fff;
   padding: 0.5rem 1rem;
-  outline: none;
-  border: none;
   border-radius: 20px;
-  font-size: 0.8rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: scale 0.2 ease;
   margin-right: 80px;
+}
+.actionBtn a {
+  color: #fff;
   text-decoration: none;
 }
-
-.actionBtn:hover {
-  scale: 1.05;
+.actionBtn a:hover {
+  color: orange;
 }
-
-.actionBtn:active {
-  scale: 0.95;
-  color: #fff;
-}
-
 .dropdownMenu {
   display: none;
   position: fixed;
@@ -98,6 +87,9 @@ li {
 .dropdownMenu.open {
   height: 280px;
 }
+.dropdownMenu div {
+  color: #fff;
+}
 
 .dropdownMenu li {
   padding: 0.7rem;
@@ -113,14 +105,6 @@ li {
 .dropdownMenu a:hover {
   color: orange;
 }
-.dropdownMenu .actionBtn {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-.dropdownMenu .actionBtn:hover {
-  color: #fff;
-}
 
 @media (max-width: 992px) {
   .navbar .links,
@@ -135,26 +119,14 @@ li {
   .dropdownMenu {
     display: block;
   }
-  .dropdownMenu .actionBtn {
-    background-color: orange;
+  .dropdownMenu p {
     color: #fff;
-    padding: 0.5rem 1rem;
-    outline: none;
-    border: none;
     border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: scale 0.3 ease;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin: 0;
   }
 }
 
 @media (max-width: 576px) {
-  body{
+  body {
     overflow-x: hidden;
   }
   .navbar {

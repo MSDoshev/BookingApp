@@ -9,6 +9,8 @@ import GalleryModal from "./GalleryModal/GalleryModal";
 
 import { uiActions } from "../../store/ui-slice";
 import { fetchGalleryData } from "../../store/gallery-actions";
+import { fadeInAnimation } from "../../util/animation";
+import PageTransitionAnimation from "../PageTransitionAnimation/PageTransitionAnimation";
 
 export const Gallery = () => {
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
@@ -38,19 +40,21 @@ export const Gallery = () => {
   };
 
   return (
-    <>
+    <PageTransitionAnimation>
       <div className={styles.title}>
         <motion.h1
           animate={{ y: [-50, 0], opacity: [0, 1] }}
-          transition={{ ease: "easeOut", duration: 1 }}
+          transition={fadeInAnimation.transition}
         >
           The Gallery
         </motion.h1>
       </div>
       <motion.div
         className={styles.gallery}
-        animate={{ y: [200, 0], opacity: [0, 1] }}
-        transition={{ ease: "easeOut", duration: 2 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={fadeInAnimation.transition}
       >
         {imageData.map((image, index) => (
           <img
@@ -67,6 +71,6 @@ export const Gallery = () => {
           image={imageData[selectedImageIndex]}
         />
       )}
-    </>
+    </PageTransitionAnimation>
   );
 };

@@ -8,6 +8,7 @@ import Villa from "./Villa/Villa";
 
 import { fetchVillasData } from "../../store/villa-actions";
 import { fadeInAnimation } from "../../util/animation";
+import PageTransitionAnimation from "../PageTransitionAnimation/PageTransitionAnimation";
 
 export const Villas = () => {
   const dispatch = useDispatch();
@@ -24,7 +25,7 @@ export const Villas = () => {
   }
 
   return (
-    <>
+    <PageTransitionAnimation>
       <div className={styles.title}>
         <motion.h1
           whileInView={fadeInAnimation.title}
@@ -44,6 +45,6 @@ export const Villas = () => {
           <Villa key={villa.id} villaData={villa} />
         ))}
       </div>
-    </>
+    </PageTransitionAnimation>
   );
 };

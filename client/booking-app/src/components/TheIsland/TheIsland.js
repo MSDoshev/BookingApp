@@ -1,10 +1,11 @@
 import styles from "./TheIsland.module.css";
 import { motion } from "framer-motion";
 import { fadeInAnimation } from "../../util/animation";
+import PageTransitionAnimation from "../PageTransitionAnimation/PageTransitionAnimation";
 
 export const TheIsland = () => {
   return (
-    <>
+    <PageTransitionAnimation>
       <div className={styles.title}>
         <motion.h1
           whileInView={fadeInAnimation.title}
@@ -124,6 +125,6 @@ export const TheIsland = () => {
           alt="Island event"
         />
       </div>
-    </>
+    </PageTransitionAnimation>
   );
 };

@@ -72,3 +72,24 @@ textarea {
   color: #202834;
   background-color: #fff;
 }
+
+@media (max-width: 1350px) {
+  .contactContentContainer {
+    flex-direction: column;
+  }
+  .contactInfoContainer {
+    border: none;
+    padding: 0;
+  }
+  .formContainer {
+    border-top: 1px solid #ccc;
+    border-radius: 0;
+    padding-top: 30px;
+  }
+}
+
+@media (max-width: 700px) {
+  .contactInfoContainer iframe{
+    width: auto;
+  }
+}

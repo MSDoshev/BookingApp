@@ -1,10 +1,11 @@
 import { fadeInAnimation } from "../../util/animation";
+import PageTransitionAnimation from "../PageTransitionAnimation/PageTransitionAnimation";
 import styles from "./Contact.module.css";
 import { motion } from "framer-motion";
 
 export default function Contact() {
   return (
-    <>
+    <PageTransitionAnimation>
       <div className={styles.title}>
         <motion.h1
           animate={{ y: [-50, 0], opacity: [0, 1] }}
@@ -76,6 +77,6 @@ export default function Contact() {
           </form>
         </motion.div>
       </div>
-    </>
+    </PageTransitionAnimation>
   );
 }
