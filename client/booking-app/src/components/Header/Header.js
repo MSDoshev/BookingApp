@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Header.module.css";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { logoutUser } from "../../store/logout-action";
 
 export const Header = () => {
+  const dispatch = useDispatch();
   const [click, setClick] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
-
   const handleClick = () => setClick((prev) => !prev);
+  const { isAuthenticated } = useSelector((state) => state.auth);
 
   const handleScroll = () => {
     if (window.scrollY > 0) {
@@ -22,6 +25,9 @@ export const Header = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+  function logOutHandler() {
+    dispatch(logoutUser());
+  }
 
   return (
     <nav className={`${styles.navbar} ${isSticky ? styles.sticky : ""}`}>
@@ -46,9 +52,16 @@ export const Header = () => {
           <Link to="/contact">Contact Us</Link>
         </li>
       </ul>
-      <div className={styles.actionBtn}>
-        <Link to="/login">Login</Link> / <Link to="/register">Register</Link>
-      </div>
+      {!isAuthenticated ? (
+        <div className={styles.actionBtn}>
+          <Link to="/login">Login</Link> / <Link to="/register">Register</Link>
+        </div>
+      ) : (
+        <div className={styles.actionBtn}>
+          <Link onClick={logOutHandler}>Logout</Link> /{" "}
+          <Link to="/profile">Profile</Link>
+        </div>
+      )}
 
       <div className={styles.toggleBtn} onClick={handleClick}>
         <i className={click ? "fas fa-times" : "fas fa-bars"} />
@@ -70,10 +83,17 @@ export const Header = () => {
           <Link to="/contact">Contact Us</Link>
         </li>
         <li>
-          <div>
-            <Link to="/login">Login</Link> /{" "}
-            <Link to="/register">Register</Link>
-          </div>
+          {!isAuthenticated ? (
+            <div>
+              <Link to="/login">Login</Link> /{" "}
+              <Link to="/register">Register</Link>
+            </div>
+          ) : (
+            <div>
+              <Link onClick={logOutHandler}>Logout</Link> /{" "}
+              <Link to="/profile">Profile</Link>
+            </div>
+          )}
         </li>
       </div>
     </nav>
