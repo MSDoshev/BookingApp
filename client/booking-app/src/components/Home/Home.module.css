@@ -29,14 +29,13 @@
 } */
 .btnContact a {
   background-color: orange;
-  padding: 5px 10px 5px 10px;
+  padding: 5px 10px 9px 10px;
   border-radius: 20px;
   border: none;
   text-decoration: none;
   color: #fff;
   transition: scale 0.2 ease;
 }
-
 
 .about {
   color: #fff;
@@ -56,16 +55,16 @@
 
 @media (max-width: 768px) {
   .about {
-    padding: 35px 20px; 
-    text-align: center; 
+    padding: 35px 20px;
+    text-align: center;
   }
 
   .about h2 {
-    font-size: 2em; 
-    margin-bottom: 20px; 
+    font-size: 2em;
+    margin-bottom: 20px;
   }
 
   .about p {
-    margin: 10px 0; 
+    margin: 10px 0;
   }
 }

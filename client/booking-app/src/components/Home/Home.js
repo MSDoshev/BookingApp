@@ -18,7 +18,7 @@ export const Home = () => {
           whileTap={{ scale: 0.9 }}
           className={styles.btnContact}
         >
-          <Link to="/contact">Contact Us</Link>
+          <Link to="/villas">Book Now</Link>
         </motion.div>
       </section>
 
