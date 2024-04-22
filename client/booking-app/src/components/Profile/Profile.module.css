@@ -1,0 +1,51 @@
+.title {
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30vh;
+  font-size: 2rem;
+}
+.profileContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  justify-content: center;
+  margin-bottom: 100px;
+  min-height: 200px;
+}
+.optionsMenu {
+  border-right: solid 1px #fff;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.optionsMenu li {
+  color: #fff;
+  cursor: pointer;
+}
+.optionsMenu li:hover {
+  color: orange;
+  border-bottom: solid 1px #fff;
+}
+.pageContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  padding-bottom: 10px;
+}
+.pageContent img {
+  width: 128px;
+  height: 128px;
+  border-radius: 100px;
+}
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  color: #fff;
+  padding-bottom: 10px;
+}

@@ -16,10 +16,19 @@ import { VillaDetails } from "./components/Villas/VillaDetails/VillaDetails";
 import Contact from "./components/Contact/Contact";
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
+import Profile from "./components/Profile/Profile";
 
 function App() {
   const [isHomePage, setIsHomePage] = useState(false);
+  // const dispatch = useDispatch();
   const location = useLocation();
+
+  // useEffect(() => {
+  //   const authToken = localStorage.getItem("token");
+  //   if (authToken) {
+  //     dispatch(loginUserWithToken(authToken));
+  //   }
+  // }, [dispatch]);
 
   useEffect(() => {
     setIsHomePage(location.pathname === "/");
@@ -41,6 +50,9 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="*" element={<Home />} />
+            {/* Add error 404 page */}
           </Routes>
         </AnimatePresence>
       </main>

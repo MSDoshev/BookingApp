@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Header.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutUser } from "../../store/logout-action";
 
@@ -10,6 +10,7 @@ export const Header = () => {
   const [isSticky, setIsSticky] = useState(false);
   const handleClick = () => setClick((prev) => !prev);
   const { isAuthenticated } = useSelector((state) => state.auth);
+  const navigate = useNavigate();
 
   const handleScroll = () => {
     if (window.scrollY > 0) {
@@ -25,10 +26,14 @@ export const Header = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  function logOutHandler() {
-    dispatch(logoutUser());
+  async function logOutHandler() {
+    try {
+      await dispatch(logoutUser());
+      navigate("/");
+    } catch (error) {
+      console.error("Error logging out:", error);
+    }
   }
-
   return (
     <nav className={`${styles.navbar} ${isSticky ? styles.sticky : ""}`}>
       <div className={styles.logo}>

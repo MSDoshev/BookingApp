@@ -22,7 +22,7 @@ export const registerUser = (userData) => {
         firstName,
         lastName,
       });
-
+      localStorage.setItem("authToken", user.accessToken);
       dispatch(authActions.registerSuccess(user));
     } catch (error) {
       dispatch(authActions.registerFailure(error.message));
