@@ -2,7 +2,7 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
-
+// import { useDispatch } from "react-redux";
 import video from "./assets/video.mp4";
 
 import { Header } from "./components/Header/Header";
@@ -17,6 +17,7 @@ import Contact from "./components/Contact/Contact";
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
 import Profile from "./components/Profile/Profile";
+// import { loginUserWithToken } from "./store/login-actions";
 
 function App() {
   const [isHomePage, setIsHomePage] = useState(false);
@@ -24,10 +25,7 @@ function App() {
   const location = useLocation();
 
   // useEffect(() => {
-  //   const authToken = localStorage.getItem("token");
-  //   if (authToken) {
-  //     dispatch(loginUserWithToken(authToken));
-  //   }
+  //   dispatch(loginUserWithToken());
   // }, [dispatch]);
 
   useEffect(() => {

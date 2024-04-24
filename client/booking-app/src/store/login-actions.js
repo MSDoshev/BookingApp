@@ -1,19 +1,13 @@
-import {
-  getAuth,
-  signInWithEmailAndPassword,
-  browserLocalPersistence,
-  setPersistence,
-} from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import "firebase/auth";
 import { authActions } from "./auth-slice";
 import { app } from "../firebase";
 
 const auth = getAuth(app);
+
 export const loginUser = (email, password) => {
   return async (dispatch) => {
     try {
-      await setPersistence(auth, browserLocalPersistence);
-
       const response = await signInWithEmailAndPassword(auth, email, password);
 
       const { user } = response;
@@ -29,16 +23,28 @@ export const loginUser = (email, password) => {
   };
 };
 
-// export const loginUserWithToken = (token) => {
+// export const loginUserWithToken = () => {
 //   return async (dispatch) => {
-//     try {
-//       await signInWithCustomToken(auth, token);
+//     const userSessionKey = `firebase:authUser:AIzaSyCoBz8zpOMvEOlVckam1xDQX4dbkMllPFs:[DEFAULT]`;
+//     const userSessionData = localStorage.getItem(userSessionKey);
+//     const userSession = JSON.parse(userSessionData);
 
-//       const user = auth.currentUser;
+//     try {
+//       const credential = OAuthCredential.fromJSON({
+//         providerId: "firebase",
+//         signInMethod: "customToken",
+//         accessToken: userSession.stsTokenManager.accessToken,
+//       });
+
+//       const userCredential = await signInWithCredential(auth, credential);
+
+//       const { user } = userCredential;
+
 //       const userData = {
 //         uid: user.uid,
 //         email: user.email,
 //       };
+
 //       dispatch(authActions.loginSuccess(userData));
 //     } catch (error) {
 //       dispatch(authActions.loginFailure(error.message));
