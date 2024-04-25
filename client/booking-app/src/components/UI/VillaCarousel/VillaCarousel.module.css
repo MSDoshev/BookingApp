@@ -1,0 +1,35 @@
+.carouselContainer {
+  position: relative;
+  height: 500px;
+  width: 700px; /* Adjust the height as needed */
+}
+
+.carouselContainer img {
+  object-fit: cover;
+  height: 500px;
+  width: 700px;
+}
+
+.carouselContainer button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  font-size: 1.5rem;
+}
+
+.carouselContainer button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.carouselContainer button:first-child {
+  left: 10px;
+}
+
+.carouselContainer button:last-child {
+  right: 10px;
+}
