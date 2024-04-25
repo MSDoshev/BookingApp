@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { registerUser } from "../../store/register-actions";
 import { useNavigate } from "react-router-dom";
+import Button from "../UI/Button";
 
 export default function Register() {
   const dispatch = useDispatch();
@@ -91,7 +92,7 @@ export default function Register() {
             value={userData.repeatPassword}
             onChange={handleInputChange}
           ></input>
-          <button type="submit">Submit</button>
+          <Button type="submit">Submit</Button>
         </form>
         <div>
           <p>

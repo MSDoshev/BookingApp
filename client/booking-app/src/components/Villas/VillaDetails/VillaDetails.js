@@ -11,6 +11,16 @@ import {
   faTv,
   faStar,
 } from "@fortawesome/free-solid-svg-icons";
+import Button from "../../UI/Button";
+import { Link } from "react-router-dom";
+import PageTransitionAnimation from "../../PageTransitionAnimation/PageTransitionAnimation";
+import VillaCarousel from "../../UI/VillaCarousel/VillaCarousel";
+
+const images = [
+  "https://www.vacation-key.com/photos/1/0/106720-1.jpg",
+  "https://media-cdn.tripadvisor.com/media/photo-s/1b/d3/ba/26/m-one-villa-private-pool.jpg",
+  "https://s3-eu-central-1.amazonaws.com/loggia-cdn/lodgeContent/164b11225e28a38808a5b62d6808f439.webp",
+];
 
 export const VillaDetails = () => {
   const [rating, setRating] = useState(0);
@@ -34,16 +44,13 @@ export const VillaDetails = () => {
     return stars;
   };
   return (
-    <>
+    <PageTransitionAnimation>
       <div className={styles.title}>
         <h1>Villa №1</h1>
       </div>
       <div className={styles.villaContainer}>
         <div className={styles.picture}>
-          <img
-            src="https://cdn.lecollectionist.com/lc/production/uploads/photos/house-4309/2021-04-16-eaeb829ab2eebc2b7f26bff0d1505f86.jpg?q=65"
-            alt="Villa"
-          />
+          <VillaCarousel images={images} />
         </div>
         <div className={styles.info}>
           <div className={styles.villaDescription}>
@@ -80,7 +87,9 @@ export const VillaDetails = () => {
               <label>To: </label>
               <input type="date"></input>
             </div>
-            <button type="submit">Book</button>
+            <Button type="submit" className="btnBook">
+              Book
+            </Button>
           </form>
 
           <div className={styles.extras}>
@@ -110,6 +119,9 @@ export const VillaDetails = () => {
           </div>
           <div className={styles.reviewsContainer}>
             <h2>Reviews</h2>
+            <Link to={""} className={styles.reviewBtn}>
+              Leave a Review
+            </Link>
             <ul className={styles.scrollableList}>
               <li>
                 <h3>User Full Name</h3>
@@ -145,6 +157,6 @@ export const VillaDetails = () => {
           </div>
         </div>
       </div>
-    </>
+    </PageTransitionAnimation>
   );
 };

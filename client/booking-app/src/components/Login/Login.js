@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { loginUser } from "../../store/login-actions";
+import Button from "../UI/Button";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -60,7 +61,7 @@ export default function Login() {
             value={userData.password}
             onChange={handleInputChange}
           ></input>
-          <button type="submit">Submit</button>
+          <Button type="submit">Submit</Button>
         </form>
         <div>
           <p>
