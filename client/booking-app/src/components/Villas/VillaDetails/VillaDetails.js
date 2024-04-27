@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./VillaDetails.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -9,12 +9,15 @@ import {
   faCoffee,
   faSnowflake,
   faTv,
-  faStar,
 } from "@fortawesome/free-solid-svg-icons";
 import Button from "../../UI/Button";
-import { Link } from "react-router-dom";
 import PageTransitionAnimation from "../../PageTransitionAnimation/PageTransitionAnimation";
 import VillaCarousel from "../../UI/VillaCarousel/VillaCarousel";
+import { fetchVillasData } from "../../../store/villa-actions";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import VillaReview from "./VillaReview/VillaReview";
+import { addReservationForUser } from "../../../store/user-actions";
 
 const images = [
   "https://www.vacation-key.com/photos/1/0/106720-1.jpg",
@@ -23,140 +26,123 @@ const images = [
 ];
 
 export const VillaDetails = () => {
-  const [rating, setRating] = useState(0);
+  const dispatch = useDispatch();
+  const { id } = useParams();
+  const villasData = useSelector((state) => state.ui.villasData);
+  const currentVilla = villasData.find((villa) => villa.id === parseInt(id));
+  const [reservationData, setReservationData] = useState({
+    villa: currentVilla,
+    guests: 1,
+    dateFrom: "",
+    dateTo: "",
+  });
 
-  const handleRatingChange = (value) => {
-    setRating(value);
+  function handleSubmit(e) {
+    e.preventDefault();
+    dispatch(addReservationForUser(reservationData));
+  }
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setReservationData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
   };
 
-  const renderStars = () => {
-    const stars = [];
-    for (let i = 1; i <= 5; i++) {
-      stars.push(
-        <FontAwesomeIcon
-          key={i}
-          icon={faStar}
-          className={i <= rating ? styles.starActive : styles.starInactive}
-          onClick={() => handleRatingChange(i)}
-        />
-      );
-    }
-    return stars;
-  };
+  useEffect(() => {
+    dispatch(fetchVillasData());
+  }, [dispatch]);
+
   return (
     <PageTransitionAnimation>
-      <div className={styles.title}>
-        <h1>Villa №1</h1>
-      </div>
-      <div className={styles.villaContainer}>
-        <div className={styles.picture}>
-          <VillaCarousel images={images} />
-        </div>
-        <div className={styles.info}>
-          <div className={styles.villaDescription}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sit
-            amet ligula a sem pulvinar molestie. Aliquam erat volutpat.
-            Curabitur faucibus accumsan odio sed semper. Fusce molestie eget
-            nisi eu elementum. Nam consectetur ipsum eu mollis aliquam. Sed
-            accumsan sollicitudin eros a euismod. Maecenas pretium velit in nisi
-            condimentum pharetra. Nullam ac est nisi. Nunc in ligula quam. Proin
-            in aliquam lectus.
-          </div>
-          <form className={styles.optionsContainer}>
-            <div>
-              <label>Guests: </label>
-              <select>
-                <option value="1">1</option>
-
-                <option value="2">2</option>
-
-                <option value="3">3</option>
-
-                <option value="4">4</option>
-
-                <option value="5">5</option>
-
-                <option value="6">6</option>
-              </select>
+      {currentVilla ? (
+        <>
+          <div className={styles.title}>
+            <div className={styles.title}>
+              <h1>{currentVilla.title}</h1>
             </div>
-            <div>
-              <label>From: </label>
-              <input type="date"></input>
+          </div>
+          <div className={styles.villaContainer}>
+            <div className={styles.picture}>
+              <VillaCarousel images={images} />
             </div>
-            <div>
-              <label>To: </label>
-              <input type="date"></input>
-            </div>
-            <Button type="submit" className="btnBook">
-              Book
-            </Button>
-          </form>
+            <div className={styles.info}>
+              <div className={styles.villaDescription}>
+                {currentVilla.description}
+              </div>
+              <form className={styles.optionsContainer} onSubmit={handleSubmit}>
+                <div>
+                  <label>Guests: </label>
+                  <select
+                    name="guests"
+                    value={reservationData.guests}
+                    onChange={handleInputChange}
+                  >
+                    {currentVilla &&
+                      [...Array(currentVilla.capacity).keys()].map((num) => (
+                        <option key={num + 1} value={num + 1}>
+                          {num + 1}
+                        </option>
+                      ))}
+                  </select>
+                </div>
+                <div>
+                  <label htmlFor="dateFrom">From: </label>
+                  <input
+                    type="date"
+                    name="dateFrom"
+                    id="dateFrom"
+                    value={reservationData.dateFrom}
+                    onChange={handleInputChange}
+                  ></input>
+                </div>
+                <div>
+                  <label htmlFor="dateTo">To: </label>
+                  <input
+                    type="date"
+                    name="dateTo"
+                    id="dateTo"
+                    value={reservationData.dateTo}
+                    onChange={handleInputChange}
+                  ></input>
+                </div>
+                <Button type="submit" className="btnBook">
+                  Book
+                </Button>
+              </form>
 
-          <div className={styles.extras}>
-            <ul>
-              <li>
-                <FontAwesomeIcon icon={faWifi} /> Free Wifi
-              </li>
-              <li>
-                <FontAwesomeIcon icon={faCar} /> Free Parking
-              </li>
-              <li>
-                <FontAwesomeIcon icon={faSwimmingPool} /> Pool
-              </li>
-              <li>
-                <FontAwesomeIcon icon={faMountain} /> Beautiful View
-              </li>
-              <li>
-                <FontAwesomeIcon icon={faCoffee} /> Breakfast Included
-              </li>
-              <li>
-                <FontAwesomeIcon icon={faSnowflake} /> Air Conditioner
-              </li>
-              <li>
-                <FontAwesomeIcon icon={faTv} /> Flat Screen TV
-              </li>
-            </ul>
+              <div className={styles.extras}>
+                <ul>
+                  <li>
+                    <FontAwesomeIcon icon={faWifi} /> Free Wifi
+                  </li>
+                  <li>
+                    <FontAwesomeIcon icon={faCar} /> Free Parking
+                  </li>
+                  <li>
+                    <FontAwesomeIcon icon={faSwimmingPool} /> Pool
+                  </li>
+                  <li>
+                    <FontAwesomeIcon icon={faMountain} /> Beautiful View
+                  </li>
+                  <li>
+                    <FontAwesomeIcon icon={faCoffee} /> Breakfast Included
+                  </li>
+                  <li>
+                    <FontAwesomeIcon icon={faSnowflake} /> Air Conditioner
+                  </li>
+                  <li>
+                    <FontAwesomeIcon icon={faTv} /> Flat Screen TV
+                  </li>
+                </ul>
+              </div>
+              <VillaReview />
+            </div>
           </div>
-          <div className={styles.reviewsContainer}>
-            <h2>Reviews</h2>
-            <Link to={""} className={styles.reviewBtn}>
-              Leave a Review
-            </Link>
-            <ul className={styles.scrollableList}>
-              <li>
-                <h3>User Full Name</h3>
-                Rating: {renderStars()}
-                <p>
-                  {" "}
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Mauris sit amet ligula a sem pulvinar molestie. Aliquam erat
-                  volutpat.
-                </p>
-              </li>
-              <li>
-                <h3>User Full Name</h3>
-                Rating: {renderStars()}
-                <p>
-                  {" "}
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Mauris sit amet ligula a sem pulvinar molestie. Aliquam erat
-                  volutpat.
-                </p>
-              </li>
-              <li>
-                <h3>User Full Name</h3>
-                Rating: {renderStars()}
-                <p>
-                  {" "}
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Mauris sit amet ligula a sem pulvinar molestie. Aliquam erat
-                  volutpat.
-                </p>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
+        </>
+      ) : (
+        <div>Loading</div>
+      )}
     </PageTransitionAnimation>
   );
 };
