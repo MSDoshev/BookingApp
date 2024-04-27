@@ -21,3 +21,21 @@
   height: 100%;
   object-fit: cover;
 }
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #202834;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #fff;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
