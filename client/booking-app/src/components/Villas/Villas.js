@@ -13,9 +13,9 @@ import PageTransitionAnimation from "../PageTransitionAnimation/PageTransitionAn
 export const Villas = () => {
   const dispatch = useDispatch();
   const villasData = useSelector((state) => state.ui.villasData);
+ 
   const clipPathTop = `${getRandomValue()}%`;
   const clipPathBottom = `${getRandomValue()}%`;
-
   useEffect(() => {
     dispatch(fetchVillasData());
   }, [dispatch]);
@@ -42,7 +42,7 @@ export const Villas = () => {
         }}
       >
         {villasData.map((villa) => (
-          <Villa key={villa.id} villaData={villa} />
+          <Villa key={villa.id} villaData={villa} id={villa.id} />
         ))}
       </div>
     </PageTransitionAnimation>

@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import styles from "./Villa.module.css";
 import { fadeInAnimation } from "../../../util/animation";
 
-const Villa = ({ villaData }) => {
+const Villa = ({ villaData, id }) => {
   return (
     <motion.div
       animate={{ opacity: [0, 1] }}
@@ -26,7 +26,7 @@ const Villa = ({ villaData }) => {
             <h3>Up to {villaData.capacity} people</h3>
             <h3>Price from &euro;{villaData.price}</h3>
           </div>
-          <Link to={`/villa/${villaData.id}`} className={styles.bookBtn}>
+          <Link to={`/villa/${id}`} className={styles.bookBtn}>
             Book Now
           </Link>
         </div>
