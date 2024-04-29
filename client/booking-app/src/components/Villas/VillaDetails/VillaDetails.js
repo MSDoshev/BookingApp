@@ -19,12 +19,6 @@ import { useParams } from "react-router-dom";
 import VillaReview from "./VillaReview/VillaReview";
 import { addReservationForUser } from "../../../store/user-actions";
 
-const images = [
-  "https://www.vacation-key.com/photos/1/0/106720-1.jpg",
-  "https://media-cdn.tripadvisor.com/media/photo-s/1b/d3/ba/26/m-one-villa-private-pool.jpg",
-  "https://s3-eu-central-1.amazonaws.com/loggia-cdn/lodgeContent/164b11225e28a38808a5b62d6808f439.webp",
-];
-
 export const VillaDetails = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
@@ -64,7 +58,7 @@ export const VillaDetails = () => {
           </div>
           <div className={styles.villaContainer}>
             <div className={styles.picture}>
-              <VillaCarousel images={images} />
+              <VillaCarousel images={currentVilla.carouselImages} />
             </div>
             <div className={styles.info}>
               <div className={styles.villaDescription}>

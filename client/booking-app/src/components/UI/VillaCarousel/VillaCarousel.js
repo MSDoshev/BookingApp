@@ -4,15 +4,16 @@ import { motion } from "framer-motion";
 const VillaCarousel = ({ images }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
+  const imagesArr = Object.values(images);
   const handlePrev = () => {
     setCurrentImageIndex((prevIndex) =>
-      prevIndex === 0 ? images.length - 1 : prevIndex - 1
+      prevIndex === 0 ? imagesArr.length - 1 : prevIndex - 1
     );
   };
 
   const handleNext = () => {
     setCurrentImageIndex((prevIndex) =>
-      prevIndex === images.length - 1 ? 0 : prevIndex + 1
+      prevIndex === imagesArr.length - 1 ? 0 : prevIndex + 1
     );
   };
 
@@ -23,7 +24,6 @@ const VillaCarousel = ({ images }) => {
         key={currentImageIndex}
         initial={{
           opacity: 0,
-          
         }}
         animate={{
           opacity: 1,
@@ -33,7 +33,7 @@ const VillaCarousel = ({ images }) => {
           opacity: 0,
           transition: { duration: 1 },
         }}
-        src={images[currentImageIndex]}
+        src={imagesArr[currentImageIndex]}
         alt="Villa"
       />
       <button onClick={handleNext}>&#10095;</button>
