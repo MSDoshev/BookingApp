@@ -1,4 +1,4 @@
-import { getDatabase, ref, get, set, push } from "firebase/database";
+import { getDatabase, ref, get, set, push, remove } from "firebase/database";
 
 import { getAuth } from "firebase/auth";
 import { app } from "../firebase";
@@ -38,9 +38,25 @@ export const addReservationForUser = (reservationData) => {
         dateTo,
       });
 
-      dispatch(userActions.reviewSuccess(reservationData));
+      dispatch(userActions.reservationSuccess(reservationData));
     } catch (error) {
-      dispatch(userActions.reviewFailure(error.message));
+      dispatch(userActions.reservationFailure(error.message));
+    }
+  };
+};
+
+export const removeReservationForUser = (key) => {
+  return async (dispatch) => {
+    const user = auth.currentUser;
+
+    try {
+      const reservationRef = ref(
+        database,
+        `users/${user.uid}/reservations/${key}`
+      );
+      remove(reservationRef)
+    } catch (error) {
+      console.log(`Unable to cancel the reservation: ${error.message}`);
     }
   };
 };

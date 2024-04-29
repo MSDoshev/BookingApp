@@ -2,9 +2,12 @@ import { useEffect, useState } from "react";
 import { getUserData } from "../../store/user-actions";
 import PageTransitionAnimation from "../PageTransitionAnimation/PageTransitionAnimation";
 import styles from "./Profile.module.css";
+import ProfileInfo from "./ProfileInfo";
+import Reservations from "./Reservations/Reservations";
 
 export default function Profile() {
   const [userData, setUserData] = useState(null);
+  const [selectedTab, setSelectedTab] = useState("profile");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -19,7 +22,10 @@ export default function Profile() {
     fetchData();
   }, []);
 
-  console.log(userData);
+  function handleSelect(currentTab) {
+    setSelectedTab((prev) => (prev = currentTab));
+  }
+
   return (
     <PageTransitionAnimation>
       <h1 className={styles.title}>Profile</h1>
@@ -27,29 +33,21 @@ export default function Profile() {
       <div className={styles.profileContainer}>
         <div>
           <ul className={styles.optionsMenu}>
-            <li>My Porfile</li>
-            <li>My Reservations</li>
+            <li onClick={() => handleSelect("profile")}>My Porfile</li>
+            <li onClick={() => handleSelect("reservations")}>
+              My Reservations
+            </li>
           </ul>
         </div>
-        <div className={styles.pageContent}>
-          <div>
-            <img
-              src="https://media.istockphoto.com/id/1223671392/vector/default-profile-picture-avatar-photo-placeholder-vector-illustration.jpg?s=612x612&w=0&k=20&c=s0aTdmT5aU6b8ot7VKm11DeID6NctRCpB755rA1BIP0="
-              alt="Profile"
-            />
-          </div>
-          <div className={styles.userInfo}>
-            <div>
-              <span>
-                Your Name:{" "}
-                {userData && `${userData.firstName} ${userData.lastName}`}
-              </span>
-            </div>
-            <div>
-              <span>Your Email:</span> {userData && userData.email}
-            </div>
-          </div>
-        </div>
+        {selectedTab === "profile" && userData && (
+          <ProfileInfo userData={userData} />
+        )}
+        {selectedTab === "reservations" && userData && (
+          <Reservations
+            reservations={userData.reservations}
+            setReservations={setUserData}
+          />
+        )}
       </div>
     </PageTransitionAnimation>
   );

@@ -27,7 +27,7 @@
 }
 .optionsMenu li:hover {
   color: orange;
-  border-bottom: solid 1px #fff;
+
 }
 .pageContent {
   display: flex;
@@ -36,6 +36,7 @@
   align-items: center;
   gap: 30px;
   padding-bottom: 10px;
+  min-width: 600px;
 }
 .pageContent img {
   width: 128px;

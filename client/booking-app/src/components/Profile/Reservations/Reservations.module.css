@@ -1,0 +1,41 @@
+.reservationsContainerAll {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  overflow-y: auto;
+  max-height: 300px;
+  max-width: 600px;
+}
+.reservationContainer {
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  background-color: #3d4a5e;
+  padding: 20px;
+  gap: 15px;
+}
+.reservationContainer img {
+  max-width: 100px;
+  max-height: 100px;
+}
+.reservationContainer button{
+    display: flex;
+    margin-left: auto;
+    border: none;
+    background-color: darkred;
+    cursor: pointer;
+    padding: 7px 15px 7px 15px;
+    border-radius: 5px;
+    color: #fff;
+}
+.reservationTextInfo h2{
+    margin: 0;
+}
+.reservationInfo {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.reservationInfo span{
+    font-weight: bold;
+}
