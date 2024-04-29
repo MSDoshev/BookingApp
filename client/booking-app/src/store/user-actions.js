@@ -46,7 +46,7 @@ export const addReservationForUser = (reservationData) => {
 };
 
 export const removeReservationForUser = (key) => {
-  return async (dispatch) => {
+  return async () => {
     const user = auth.currentUser;
 
     try {
@@ -54,9 +54,45 @@ export const removeReservationForUser = (key) => {
         database,
         `users/${user.uid}/reservations/${key}`
       );
-      remove(reservationRef)
+      remove(reservationRef);
     } catch (error) {
       console.log(`Unable to cancel the reservation: ${error.message}`);
     }
   };
+};
+
+export const addVillaReview = (reviewData, id) => {
+  return async (dispatch) => {
+    const user = auth.currentUser;
+
+    try {
+      const snapshot = await get(ref(database, `users/${user.uid}`));
+      const userData = snapshot.val();
+      const userFullName = `${userData.firstName} ${userData.lastName}`;
+
+      const { rating, reviewText } = reviewData;
+      const reviewRef = ref(database, `villas/${id}/reviews`);
+      const newReviewRef = push(reviewRef);
+      await set(newReviewRef, {
+        userID: user.uid,
+        userName: userFullName,
+        rating,
+        reviewText,
+      });
+
+      dispatch(userActions.reviewSuccess(reviewData));
+    } catch (error) {
+      dispatch(userActions.reviewFailure(error.message));
+    }
+  };
+};
+export const getReviewsData = async (id) => {
+  try {
+    const snapshot = await get(ref(database, `villas/${id}/reviews`));
+    const reviewsData = snapshot.val();
+    return reviewsData;
+  } catch (error) {
+    console.error("Error fetching review data:", error.message);
+    return null;
+  }
 };

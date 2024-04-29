@@ -4,6 +4,7 @@ const userSlice = createSlice({
   name: "user",
   initialState: {
     reservations: [],
+    reviews: [],
     error: null,
   },
   reducers: {
@@ -12,6 +13,13 @@ const userSlice = createSlice({
       state.error = null;
     },
     reservationFailure(state, action) {
+      state.error = action.payload;
+    },
+    reviewSuccess(state, action) {
+      state.reviews = action.payload;
+      state.error = null;
+    },
+    reviewFailure(state, action) {
       state.error = action.payload;
     },
   },

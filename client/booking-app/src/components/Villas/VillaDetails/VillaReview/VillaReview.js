@@ -1,66 +1,104 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+import { useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import styles from "./VillaReview.module.css";
+import ReviewModal from "./ReviewModal/ReviewModal";
+import { addVillaReview, getReviewsData } from "../../../../store/user-actions";
 
 export default function VillaReview() {
-  const [rating, setRating] = useState(0);
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  let { id } = useParams();
+  id -= 1;
+  const [reviewData, setReviewData] = useState({
+    villa: null,
+    rating: null,
+    reviewText: "",
+  });
+  const [reviews, setReviews] = useState([]);
+  const dispatch = useDispatch();
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
 
-  const renderStars = () => {
-    const stars = [];
-    const handleRatingChange = (value) => {
-      setRating(value);
+  const handleModalClose = () => {
+    setIsModalVisible(false);
+    setReviewData({
+      villa: null,
+      rating: null,
+      reviewText: "",
+    });
+  };
+
+  const handleReviewSubmit = async (reviewData) => {
+    try {
+      await dispatch(addVillaReview(reviewData, id));
+      const updatedReviewsData = await getReviewsData(id);
+      setReviews(updatedReviewsData);
+      console.log("Submitting review:", reviewData);
+      setIsModalVisible(false);
+      setReviewData({
+        villa: null,
+        rating: null,
+        reviewText: "",
+      });
+    } catch (error) {
+      console.error("Error submitting review:", error.message);
+    }
+  };
+
+  useEffect(() => {
+    const fetchReviews = async () => {
+      const reviewsData = await getReviewsData(id);
+      if (reviewsData) {
+        setReviews(reviewsData);
+      } else {
+        // Handle error
+      }
     };
 
-    for (let i = 1; i <= 5; i++) {
-      stars.push(
-        <FontAwesomeIcon
-          key={i}
-          icon={faStar}
-          className={i <= rating ? styles.starActive : styles.starInactive}
-          onClick={() => handleRatingChange(i)}
-        />
-      );
-    }
-    return stars;
-  };
+    fetchReviews();
+  }, [id]);
+  console.log(reviewData);
+  console.log(reviews);
   return (
     <div className={styles.reviewsContainer}>
       <h2>Reviews</h2>
-      <Link to={""} className={styles.reviewBtn}>
+      <button className={styles.reviewBtn} onClick={showModal}>
         Leave a Review
-      </Link>
-      <ul className={styles.scrollableList}>
-        <li>
-          <h3>User Full Name</h3>
-          Rating: {renderStars()}
-          <p>
-            {" "}
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sit
-            amet ligula a sem pulvinar molestie. Aliquam erat volutpat.
-          </p>
-        </li>
-        <li>
-          <h3>User Full Name</h3>
-          Rating: {renderStars()}
-          <p>
-            {" "}
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sit
-            amet ligula a sem pulvinar molestie. Aliquam erat volutpat.
-          </p>
-        </li>
-        <li>
-          <h3>User Full Name</h3>
-          Rating: {renderStars()}
-          <p>
-            {" "}
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sit
-            amet ligula a sem pulvinar molestie. Aliquam erat volutpat.
-          </p>
-        </li>
-      </ul>
+      </button>
+      <ReviewModal
+        visible={isModalVisible}
+        onClose={handleModalClose}
+        onSubmit={handleReviewSubmit}
+        setReviewData={setReviewData}
+        reviewData={reviewData}
+        villaId={id}
+      />
+      {Object.entries(reviews).length > 0 ? (
+        <>
+          <ul className={styles.scrollableList}>
+            {reviews &&
+              Object.entries(reviews).map(([key, review]) => (
+                <li key={key}>
+                  <h3>{review.userName}</h3>
+                  Rating:{" "}
+                  {[...Array(review.rating)].map((star, index) => {
+                    return (
+                      <label key={index} className={styles.rating}>
+                        <FontAwesomeIcon icon={faStar} />
+                      </label>
+                    );
+                  })}
+                  <p>{review.reviewText}</p>
+                </li>
+              ))}
+          </ul>{" "}
+        </>
+      ) : (
+        <div className={styles.noReviewsText}>No Reviews Yet..</div>
+      )}
     </div>
   );
 }

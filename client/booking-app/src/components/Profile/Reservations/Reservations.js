@@ -3,7 +3,6 @@ import { useDispatch } from "react-redux";
 import { motion } from "framer-motion";
 import { removeReservationForUser } from "../../../store/user-actions";
 export default function Reservations({ reservations, setReservations }) {
-  console.log(reservations);
   const dispatch = useDispatch();
   function handleCancel(key) {
     dispatch(removeReservationForUser(key));

@@ -26,3 +26,8 @@
   margin-bottom: 5px;
   border-radius: 10px;
 }
+.noReviewsText {
+  text-align: center;
+  font-size: larger;
+  color: #e0e0e0;
+}

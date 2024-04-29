@@ -130,7 +130,7 @@ export const VillaDetails = () => {
                   </li>
                 </ul>
               </div>
-              <VillaReview />
+              <VillaReview reviews={currentVilla.reviews} />
             </div>
           </div>
         </>
