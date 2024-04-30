@@ -79,7 +79,7 @@ export default function VillaReview() {
           <ul className={styles.scrollableList}>
             {reviews &&
               Object.entries(reviews).map(([key, review]) => (
-                <li key={key}>
+                <li key={key} className={styles.reviewItem}>
                   <h3>{review.userName}</h3>
                   Rating:{" "}
                   {[...Array(review.rating)].map((star, index) => {

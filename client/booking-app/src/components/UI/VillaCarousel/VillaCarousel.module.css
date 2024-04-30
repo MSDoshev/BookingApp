@@ -1,7 +1,7 @@
 .carouselContainer {
   position: relative;
   height: 500px;
-  width: 700px; /* Adjust the height as needed */
+  width: 700px;
 }
 
 .carouselContainer img {
@@ -32,4 +32,24 @@
 
 .carouselContainer button:last-child {
   right: 10px;
+}
+@media (max-width: 750px) {
+  .carouselContainer {
+    height: 300px;
+    width: 500px;
+  }
+  .carouselContainer img {
+    height: 300px;
+    width: 500px;
+  }
+}
+@media (max-width: 530px) {
+  .carouselContainer {
+    height: 200px;
+    width: 300px;
+  }
+  .carouselContainer img {
+    height:200px;
+    width: 300px;
+  }
 }

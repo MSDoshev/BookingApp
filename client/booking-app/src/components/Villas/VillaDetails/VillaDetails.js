@@ -18,12 +18,16 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import VillaReview from "./VillaReview/VillaReview";
 import { addReservationForUser } from "../../../store/user-actions";
+import FeedbackModal from "../../UI/FeedbackModal/FeedbackModal";
+import { uiActions } from "../../../store/ui-slice";
 
 export const VillaDetails = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const villasData = useSelector((state) => state.ui.villasData);
   const currentVilla = villasData.find((villa) => villa.id === parseInt(id));
+  const [feedbackMessage, setFeedbackMessage] = useState("");
+
   const [reservationData, setReservationData] = useState({
     villa: currentVilla,
     guests: 1,
@@ -34,7 +38,22 @@ export const VillaDetails = () => {
 
   function handleSubmit(e) {
     e.preventDefault();
-    dispatch(addReservationForUser(reservationData));
+    dispatch(addReservationForUser(reservationData))
+      .then(() => {
+        dispatch(uiActions.toggleFeedbackModal());
+        setFeedbackMessage("Your reservation is submitted successfully!");
+      })
+      .catch((error) => {
+        dispatch(uiActions.toggleFeedbackModal());
+        setFeedbackMessage(`Error: ${error.message}`);
+      });
+    setReservationData({
+      villa: currentVilla,
+      guests: 1,
+      dateFrom: "",
+      dateTo: "",
+      price: 0,
+    });
   }
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -77,6 +96,13 @@ export const VillaDetails = () => {
 
   return (
     <PageTransitionAnimation>
+      {feedbackMessage && (
+        <FeedbackModal
+          visible={true}
+          onClose={() => setFeedbackMessage("")}
+          message={feedbackMessage}
+        />
+      )}
       {currentVilla ? (
         <>
           <div className={styles.title}>
@@ -116,6 +142,7 @@ export const VillaDetails = () => {
                     id="dateFrom"
                     value={reservationData.dateFrom}
                     onChange={handleInputChange}
+                    required
                   ></input>
                 </div>
                 <div>
@@ -126,13 +153,12 @@ export const VillaDetails = () => {
                     id="dateTo"
                     value={reservationData.dateTo}
                     onChange={handleInputChange}
+                    required
                   ></input>
                 </div>
                 <div>
-                  <p>
-                    <span>Price: </span>
-                    {reservationData.price}
-                  </p>
+                  <span>Price: </span>
+                  {reservationData.price}
                 </div>
                 <Button type="submit" className="btnBook">
                   Book
