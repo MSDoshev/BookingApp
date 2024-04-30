@@ -2,6 +2,7 @@ import { useState } from "react";
 import styles from "./ReviewModal.module.css";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Button from "../../../../UI/Button";
 
 export default function ReviewModal({
   visible,
@@ -75,7 +76,7 @@ export default function ReviewModal({
           </form>
         </div>
         <div>
-          <button onClick={handleSubmit}>Submit</button>
+          <Button onClick={handleSubmit} className="btnSubmit">Submit</Button>
         </div>
       </div>
     </div>

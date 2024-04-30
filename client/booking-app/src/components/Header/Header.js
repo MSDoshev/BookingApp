@@ -71,7 +71,10 @@ export const Header = () => {
       <div className={styles.toggleBtn} onClick={handleClick}>
         <i className={click ? "fas fa-times" : "fas fa-bars"} />
       </div>
-      <div className={`${styles.dropdownMenu} ${click ? styles.open : ""}`}>
+      <div
+        className={`${styles.dropdownMenu} ${click ? styles.open : ""}`}
+        onClick={() => setClick(false)}
+      >
         <li>
           <Link to="/">Home</Link>
         </li>

@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import styles from "./VillaReview.module.css";
 import ReviewModal from "./ReviewModal/ReviewModal";
 import { addVillaReview, getReviewsData } from "../../../../store/user-actions";
 
-export default function VillaReview() {
+export default function VillaReview({ isAuthenticated }) {
   const [isModalVisible, setIsModalVisible] = useState(false);
   let { id } = useParams();
   id -= 1;
@@ -18,6 +18,8 @@ export default function VillaReview() {
   });
   const [reviews, setReviews] = useState([]);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const showModal = () => {
     setIsModalVisible(true);
   };
@@ -32,6 +34,14 @@ export default function VillaReview() {
   };
 
   const handleReviewSubmit = async (reviewData) => {
+    if (!isAuthenticated) {
+      navigate("/login");
+      return;
+    }
+    if (!reviewData.reviewText.trim()) {
+      console.error("Review text cannot be empty");
+      return;
+    }
     try {
       await dispatch(addVillaReview(reviewData, id));
       const updatedReviewsData = await getReviewsData(id);
@@ -59,7 +69,6 @@ export default function VillaReview() {
 
     fetchReviews();
   }, [id]);
-
   return (
     <div className={styles.reviewsContainer}>
       <h2>Reviews</h2>
@@ -85,7 +94,7 @@ export default function VillaReview() {
                   {[...Array(review.rating)].map((star, index) => {
                     return (
                       <label key={index} className={styles.rating}>
-                        <FontAwesomeIcon icon={faStar} color="#ffc107"/>
+                        <FontAwesomeIcon icon={faStar} color="#ffc107" />
                       </label>
                     );
                   })}

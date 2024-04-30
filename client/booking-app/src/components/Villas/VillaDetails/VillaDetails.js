@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
-import styles from "./VillaDetails.module.css";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faWifi,
@@ -13,20 +14,22 @@ import {
 import Button from "../../UI/Button";
 import PageTransitionAnimation from "../../PageTransitionAnimation/PageTransitionAnimation";
 import VillaCarousel from "../../UI/VillaCarousel/VillaCarousel";
-import { fetchVillasData } from "../../../store/villa-actions";
-import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
 import VillaReview from "./VillaReview/VillaReview";
-import { addReservationForUser } from "../../../store/user-actions";
 import FeedbackModal from "../../UI/FeedbackModal/FeedbackModal";
+import { fetchVillasData } from "../../../store/villa-actions";
+import { addReservationForUser } from "../../../store/user-actions";
 import { uiActions } from "../../../store/ui-slice";
+import styles from "./VillaDetails.module.css";
 
 export const VillaDetails = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { isAuthenticated } = useSelector((state) => state.auth);
   const { id } = useParams();
   const villasData = useSelector((state) => state.ui.villasData);
-  const currentVilla = villasData.find((villa) => villa.id === parseInt(id));
   const [feedbackMessage, setFeedbackMessage] = useState("");
+
+  const currentVilla = villasData.find((villa) => villa.id === parseInt(id));
 
   const [reservationData, setReservationData] = useState({
     villa: currentVilla,
@@ -38,6 +41,10 @@ export const VillaDetails = () => {
 
   function handleSubmit(e) {
     e.preventDefault();
+    if (!isAuthenticated) {
+      navigate("/login");
+      return;
+    }
     dispatch(addReservationForUser(reservationData))
       .then(() => {
         dispatch(uiActions.toggleFeedbackModal());
@@ -86,7 +93,6 @@ export const VillaDetails = () => {
 
     const numberOfNights = (endDate - startDate) / (1000 * 60 * 60 * 24);
     const totalPrice = pricePerNight * numberOfNights;
-    console.log(totalPrice);
     return totalPrice;
   };
 
@@ -190,7 +196,10 @@ export const VillaDetails = () => {
                   </li>
                 </ul>
               </div>
-              <VillaReview reviews={currentVilla.reviews} />
+              <VillaReview
+                reviews={currentVilla.reviews}
+                isAuthenticated={isAuthenticated}
+              />
             </div>
           </div>
         </>

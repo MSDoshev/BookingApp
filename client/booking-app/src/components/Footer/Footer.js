@@ -1,40 +1,57 @@
+import { Link } from "react-router-dom";
 import styles from "./Footer.module.css";
 
 export const Footer = () => {
-    return (
-        <div className={styles.footer}>
-            <div className={styles.left}>
-                <h1><a href="/">Mykonos Spa & Resort</a></h1>
-            </div>
+  return (
+    <div className={styles.footer}>
+      <div className={styles.left}>
+        <h1>
+          <Link to="/">Mykonos Spa & Resort</Link>
+        </h1>
+      </div>
 
-            <ul className={styles.right}>
-                <li>
-                    <h2>Explore</h2>
-                    <ul className={styles.box}>
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/">Gallery</a></li>
-                        <li><a href="/">Villas</a></li>
-                        <li><a href="/">The Island</a></li>
-                    </ul>
-                </li>
-                <li className={styles.features}>
-                    <h2>Need Help?</h2>
-                    <ul className={styles["box h-box"]}>
-                        <li><a href="/">Contact Us</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <h2>Legal</h2>
-                    <ul className={styles.box}>
-                        <li><a href="/">Privacy Policy</a></li>
-                        <li><a href="/">Terms of Use</a></li>
-                    </ul>
-                </li>
-            </ul>
+      <ul className={styles.right}>
+        <li>
+          <h2>Explore</h2>
+          <ul className={styles.box}>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/gallery">Gallery</Link>
+            </li>
+            <li>
+              <Link to="/villas">Villas</Link>
+            </li>
+            <li>
+              <Link to="/theIsland">The Island</Link>
+            </li>
+          </ul>
+        </li>
+        <li className={styles.features}>
+          <h2>Need Help?</h2>
+          <ul className={styles["box h-box"]}>
+            <li>
+              <Link to="/contact">Contact Us</Link>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <h2>Legal</h2>
+          <ul className={styles.box}>
+            <li>
+              <Link to="/">Privacy Policy</Link>
+            </li>
+            <li>
+              <Link to="/">Terms of Use</Link>
+            </li>
+          </ul>
+        </li>
+      </ul>
 
-            <div className={styles.rights}>
-                <p>All rights reserved &copy; 2024</p>
-            </div>
-        </div>
-    );
-}
+      <div className={styles.rights}>
+        <p>All rights reserved &copy; 2024</p>
+      </div>
+    </div>
+  );
+};

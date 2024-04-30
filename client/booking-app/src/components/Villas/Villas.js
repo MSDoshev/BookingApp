@@ -9,11 +9,12 @@ import Villa from "./Villa/Villa";
 import { fetchVillasData } from "../../store/villa-actions";
 import { fadeInAnimation } from "../../util/animation";
 import PageTransitionAnimation from "../PageTransitionAnimation/PageTransitionAnimation";
+import ScrollToTop from "../UI/ScrollToTop";
 
 export const Villas = () => {
   const dispatch = useDispatch();
   const villasData = useSelector((state) => state.ui.villasData);
- 
+
   const clipPathTop = `${getRandomValue()}%`;
   const clipPathBottom = `${getRandomValue()}%`;
   useEffect(() => {
@@ -26,6 +27,7 @@ export const Villas = () => {
 
   return (
     <PageTransitionAnimation>
+      <ScrollToTop />
       <div className={styles.title}>
         <motion.h1
           whileInView={fadeInAnimation.title}

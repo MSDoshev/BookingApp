@@ -35,7 +35,7 @@
   align-items: center;
   gap: 30px;
   padding-bottom: 10px;
-  min-width: 600px;
+  width: 600px;
 }
 .pageContent img {
   width: 128px;
@@ -63,6 +63,9 @@
     display: flex;
     flex-direction: row;
     gap: 40px;
+  }
+  .pageContent {
+    width: auto;
   }
 }
 @media (max-width: 500px) {
