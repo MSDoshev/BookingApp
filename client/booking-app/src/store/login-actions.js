@@ -22,32 +22,3 @@ export const loginUser = (email, password) => {
     }
   };
 };
-
-// export const loginUserWithToken = () => {
-//   return async (dispatch) => {
-//     const userSessionKey = `firebase:authUser:AIzaSyCoBz8zpOMvEOlVckam1xDQX4dbkMllPFs:[DEFAULT]`;
-//     const userSessionData = localStorage.getItem(userSessionKey);
-//     const userSession = JSON.parse(userSessionData);
-
-//     try {
-//       const credential = OAuthCredential.fromJSON({
-//         providerId: "firebase",
-//         signInMethod: "customToken",
-//         accessToken: userSession.stsTokenManager.accessToken,
-//       });
-
-//       const userCredential = await signInWithCredential(auth, credential);
-
-//       const { user } = userCredential;
-
-//       const userData = {
-//         uid: user.uid,
-//         email: user.email,
-//       };
-
-//       dispatch(authActions.loginSuccess(userData));
-//     } catch (error) {
-//       dispatch(authActions.loginFailure(error.message));
-//     }
-//   };
-// };

@@ -18,7 +18,9 @@ import Contact from "./components/Contact/Contact";
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
 import Profile from "./components/Profile/Profile";
-import { RouteGuard } from "./components/RouteGurad/RouteGuard";
+import { RouteGuard } from "./components/Authentication/RouteGuard";
+import ScrollToTop from "./components/UI/ScrollToTop";
+import AuthListener from "./components/Authentication/AuthListener ";
 // import { loginUserWithToken } from "./store/login-actions";
 
 function App() {
@@ -40,6 +42,8 @@ function App() {
         <Header />
       </header>
       <main>
+        <ScrollToTop />
+        <AuthListener />
         <AnimatePresence mode="wait">
           <Routes location={location} key={location.pathname}>
             <Route path="/" element={<Home />} />

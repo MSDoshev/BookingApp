@@ -57,7 +57,7 @@ export const removeReservationForUser = (key) => {
       );
       remove(reservationRef);
     } catch (error) {
-      console.log(`Unable to cancel the reservation: ${error.message}`);
+      console.error(`Unable to cancel the reservation: ${error.message}`);
     }
   };
 };
