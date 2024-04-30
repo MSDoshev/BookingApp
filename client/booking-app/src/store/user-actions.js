@@ -28,7 +28,7 @@ export const addReservationForUser = (reservationData) => {
     const user = auth.currentUser;
 
     try {
-      const { villa, guests, dateFrom, dateTo } = reservationData;
+      const { villa, guests, dateFrom, dateTo, price } = reservationData;
       const reservationsRef = ref(database, `users/${user.uid}/reservations`);
       const newReservationRef = push(reservationsRef);
       await set(newReservationRef, {
@@ -36,6 +36,7 @@ export const addReservationForUser = (reservationData) => {
         guests,
         dateFrom,
         dateTo,
+        price,
       });
 
       dispatch(userActions.reservationSuccess(reservationData));

@@ -29,6 +29,7 @@ export const VillaDetails = () => {
     guests: 1,
     dateFrom: "",
     dateTo: "",
+    price: 0,
   });
 
   function handleSubmit(e) {
@@ -41,6 +42,33 @@ export const VillaDetails = () => {
       ...prevData,
       [name]: value,
     }));
+    if (name === "dateFrom" || name === "dateTo") {
+      const totalPrice = calculatePrice({ ...reservationData, [name]: value });
+      setReservationData((prevData) => ({
+        ...prevData,
+        price: totalPrice,
+      }));
+    }
+  };
+  const calculatePrice = (reservationData) => {
+    const { dateFrom, dateTo } = reservationData;
+
+    if (!dateFrom || !dateTo) {
+      return 0;
+    }
+
+    const pricePerNight = currentVilla.price;
+    const startDate = new Date(dateFrom);
+    const endDate = new Date(dateTo);
+
+    if (isNaN(startDate) || isNaN(endDate)) {
+      return 0;
+    }
+
+    const numberOfNights = (endDate - startDate) / (1000 * 60 * 60 * 24);
+    const totalPrice = pricePerNight * numberOfNights;
+    console.log(totalPrice);
+    return totalPrice;
   };
 
   useEffect(() => {
@@ -99,6 +127,12 @@ export const VillaDetails = () => {
                     value={reservationData.dateTo}
                     onChange={handleInputChange}
                   ></input>
+                </div>
+                <div>
+                  <p>
+                    <span>Price: </span>
+                    {reservationData.price}
+                  </p>
                 </div>
                 <Button type="submit" className="btnBook">
                   Book
