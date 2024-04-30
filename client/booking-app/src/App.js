@@ -2,6 +2,7 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
+
 // import { useDispatch } from "react-redux";
 import video from "./assets/video.mp4";
 
@@ -17,6 +18,7 @@ import Contact from "./components/Contact/Contact";
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
 import Profile from "./components/Profile/Profile";
+import { RouteGuard } from "./components/RouteGurad/RouteGuard";
 // import { loginUserWithToken } from "./store/login-actions";
 
 function App() {
@@ -48,9 +50,10 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/profile" element={<Profile />} />
             <Route path="*" element={<Home />} />
-            {/* Add error 404 page */}
+            <Route element={<RouteGuard />}>
+              <Route path="/profile" element={<Profile />} />
+            </Route>
           </Routes>
         </AnimatePresence>
       </main>
