@@ -23,7 +23,10 @@ export const registerUser = (userData) => {
         lastName,
       });
       localStorage.setItem("authToken", user.accessToken);
-      dispatch(authActions.registerSuccess(user));
+       dispatch(authActions.registerSuccess({
+        uid: user.uid,
+        email: user.email,
+      }));
     } catch (error) {
       dispatch(authActions.registerFailure(error.message));
     }

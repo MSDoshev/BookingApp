@@ -24,7 +24,7 @@ const Villa = ({ villaData, id }) => {
         <div className={styles.vInfo}>
           <div>
             <h3>Up to {villaData.capacity} people</h3>
-            <h3>Price from &euro;{villaData.price}</h3>
+            <h3>Price: &euro;{villaData.price} (per night)</h3>
           </div>
           <Link to={`/villa/${id}`} className={styles.bookBtn}>
             Book Now

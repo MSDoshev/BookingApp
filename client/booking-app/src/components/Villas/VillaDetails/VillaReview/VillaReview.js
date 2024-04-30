@@ -36,7 +36,6 @@ export default function VillaReview() {
       await dispatch(addVillaReview(reviewData, id));
       const updatedReviewsData = await getReviewsData(id);
       setReviews(updatedReviewsData);
-      console.log("Submitting review:", reviewData);
       setIsModalVisible(false);
       setReviewData({
         villa: null,
@@ -60,8 +59,7 @@ export default function VillaReview() {
 
     fetchReviews();
   }, [id]);
-  console.log(reviewData);
-  console.log(reviews);
+
   return (
     <div className={styles.reviewsContainer}>
       <h2>Reviews</h2>
@@ -87,14 +85,14 @@ export default function VillaReview() {
                   {[...Array(review.rating)].map((star, index) => {
                     return (
                       <label key={index} className={styles.rating}>
-                        <FontAwesomeIcon icon={faStar} />
+                        <FontAwesomeIcon icon={faStar} color="#ffc107"/>
                       </label>
                     );
                   })}
                   <p>{review.reviewText}</p>
                 </li>
               ))}
-          </ul>{" "}
+          </ul>
         </>
       ) : (
         <div className={styles.noReviewsText}>No Reviews Yet..</div>

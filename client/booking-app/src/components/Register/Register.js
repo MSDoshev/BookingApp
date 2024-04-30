@@ -16,6 +16,21 @@ export default function Register() {
     password: "",
     repeatPassword: "",
   });
+  const [didEdit, setDidEdit] = useState({
+    firstName: false,
+    lastName: false,
+    email: false,
+    password: false,
+    repeatPassword: false,
+  });
+
+  const validationRules = {
+    firstName: (value) => value.trim() !== "",
+    lastName: (value) => value.trim() !== "",
+    email: (value) => /^[\w\-.]+@[\w-]+\.+[\w-]{2,4}$/.test(value),
+    password: (value) => value.length >= 6,
+    repeatPassword: (value) => value === userData.password,
+  };
 
   const { isAuthenticated } = useSelector((state) => state.auth);
   const navigate = useNavigate();
@@ -26,6 +41,10 @@ export default function Register() {
       ...prevData,
       [name]: value,
     }));
+    setDidEdit((prevEdit) => ({
+      ...prevEdit,
+      [name]: false,
+    }));
   };
 
   const handleSubmit = (e) => {
@@ -35,6 +54,13 @@ export default function Register() {
     }
     dispatch(registerUser(userData));
   };
+
+  function handleInputBlur(identifier) {
+    setDidEdit((prevEdit) => ({
+      ...prevEdit,
+      [identifier]: true,
+    }));
+  }
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -47,52 +73,103 @@ export default function Register() {
       <h1 className={styles.title}>Register</h1>
       <div className={styles.registerFormContainer}>
         <form onSubmit={handleSubmit}>
-          <label htmlFor="firstName">First Name:</label>
-          <input
-            type="text"
-            placeholder="Your first name..."
-            name="firstName"
-            id="firstName"
-            value={userData.firstName}
-            onChange={handleInputChange}
-          ></input>
-          <label htmlFor="lastName">Last Name:</label>
-          <input
-            type="text"
-            placeholder="Your last name..."
-            name="lastName"
-            id="lastName"
-            value={userData.lastName}
-            onChange={handleInputChange}
-          ></input>
-          <label htmlFor="email">Email:</label>
-          <input
-            type="email"
-            placeholder="example@mail.com"
-            name="email"
-            id="email"
-            value={userData.email}
-            onChange={handleInputChange}
-          ></input>
-          <label>Password:</label>
-          <input
-            type="password"
-            placeholder="***********"
-            name="password"
-            id="password"
-            value={userData.password}
-            onChange={handleInputChange}
-          ></input>
-          <label>Repeat Password:</label>
-          <input
-            type="password"
-            placeholder="***********"
-            name="repeatPassword"
-            id="repeatPassword"
-            value={userData.repeatPassword}
-            onChange={handleInputChange}
-          ></input>
-          <Button type="submit">Submit</Button>
+          <div className={styles.inputContainer}>
+            <label htmlFor="firstName">First Name:</label>
+            <input
+              type="text"
+              placeholder="Your first name..."
+              name="firstName"
+              id="firstName"
+              onBlur={() => handleInputBlur("firstName")}
+              value={userData.firstName}
+              onChange={handleInputChange}
+              required
+            />
+            <div className={styles.validationError}>
+              {didEdit.firstName &&
+                !validationRules.firstName(userData.firstName) && (
+                  <p>First name cannot be empty.</p>
+                )}
+            </div>
+          </div>
+          <div className={styles.inputContainer}>
+            <label htmlFor="lastName">Last Name:</label>
+            <input
+              type="text"
+              placeholder="Your last name..."
+              name="lastName"
+              id="lastName"
+              onBlur={() => handleInputBlur("lastName")}
+              value={userData.lastName}
+              onChange={handleInputChange}
+              required
+            />
+            <div className={styles.validationError}>
+              {didEdit.lastName &&
+                !validationRules.lastName(userData.lastName) && (
+                  <p>Last name cannot be empty.</p>
+                )}
+            </div>
+          </div>
+          <div className={styles.inputContainer}>
+            <label htmlFor="email">Email:</label>
+            <input
+              type="email"
+              placeholder="example@mail.com"
+              name="email"
+              id="email"
+              onBlur={() => handleInputBlur("email")}
+              value={userData.email}
+              onChange={handleInputChange}
+              required
+            />
+            <div className={styles.validationError}>
+              {didEdit.email && !validationRules.email(userData.email) && (
+                <p>Please enter a valid email address.</p>
+              )}
+            </div>
+          </div>
+          <div className={styles.inputContainer}>
+            <label>Password:</label>
+            <input
+              type="password"
+              placeholder="***********"
+              name="password"
+              id="password"
+              onBlur={() => handleInputBlur("password")}
+              value={userData.password}
+              onChange={handleInputChange}
+              required
+            />
+            <div className={styles.validationError}>
+              {didEdit.password &&
+                !validationRules.password(userData.password) && (
+                  <p>Password should be at least 6 characters.</p>
+                )}
+            </div>
+          </div>
+          <div className={styles.inputContainer}>
+            <label>Repeat Password:</label>
+            <input
+              type="password"
+              placeholder="***********"
+              name="repeatPassword"
+              id="repeatPassword"
+              onBlur={() => handleInputBlur("repeatPassword")}
+              value={userData.repeatPassword}
+              onChange={handleInputChange}
+              required
+            />
+            <div className={styles.validationError}>
+              {didEdit.repeatPassword &&
+                !validationRules.repeatPassword(userData.repeatPassword) && (
+                  <p>Passwords should match.</p>
+                )}
+            </div>
+          </div>
+          <Button type="submit" className="btnSubmit">
+            Submit
+          </Button>
         </form>
         <div>
           <p>

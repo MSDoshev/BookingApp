@@ -18,6 +18,7 @@
 .loginFormContainer form {
   display: flex;
   flex-direction: column;
+  gap: 10px;
 }
 .loginFormContainer input {
   color: #fff;
@@ -27,8 +28,6 @@
   border-bottom: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
-  margin-top: 6px;
-  margin-bottom: 16px;
   resize: vertical;
   background-color: #202834;
   width: 300px;
@@ -40,4 +39,13 @@
   text-decoration: none;
   font-weight: bold;
   color: orange;
+}
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+}
+.inputContainer p {
+  margin: 0;
+  margin-top: 10px;
+  color: rgb(197, 2, 2);
 }
