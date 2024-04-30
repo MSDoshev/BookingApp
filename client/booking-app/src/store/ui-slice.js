@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   galleryModalIsVisible: false,
+  feedbackModal: false,
   villasData: [],
   imagesData: [],
 };
@@ -18,6 +19,9 @@ const uiSlice = createSlice({
     },
     setImagesData(state, action) {
       state.imagesData = action.payload.images;
+    },
+    toggleFeedbackModal(state) {
+      state.feedbackModal = !state.feedbackModal;
     },
   },
 });

@@ -19,14 +19,14 @@
   gap: 15px;
 }
 
-.picture img {
-  max-width: 700px;
-  max-height: 600px;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-  padding-right: 30px;
-}
+/* .picture img {
+    max-width: 700px;
+    max-height: 600px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    padding-right: 30px;
+  } */
 .villaDescription {
   color: #fff;
 }
@@ -57,4 +57,39 @@
   max-height: 100px;
   gap: 15px;
   color: #fff;
+}
+@media (max-width: 1400px) {
+  .villaContainer {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media (max-width: 750px) {
+  .info {
+    width: 400px;
+    justify-content: center;
+    align-items: center;
+  }
+  .optionsContainer {
+    flex-wrap: wrap;
+  }
+  .extras ul{
+    max-height: 150px;
+    justify-content: center;
+    padding: 0;
+  }
+}
+@media (max-width: 530px) {
+  .info {
+    width: 300px;
+  }
+  .optionsContainer {
+    flex-wrap: wrap;
+  }
+  .extras ul{
+    max-height: 150px;
+    justify-content: center;
+    padding: 0;
+  }
 }
