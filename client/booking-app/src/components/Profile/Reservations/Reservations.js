@@ -45,7 +45,7 @@ export default function Reservations({ reservations, setReservations }) {
                   </p>
                   <p>
                     <span>Price: </span>
-                    {reservation.price}
+                    &euro;{reservation.price}
                   </p>
                 </div>
                 <motion.button

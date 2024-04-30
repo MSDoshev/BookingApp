@@ -158,7 +158,7 @@ export const VillaDetails = () => {
                 </div>
                 <div>
                   <span>Price: </span>
-                  {reservationData.price}
+                  &euro;{reservationData.price}
                 </div>
                 <Button type="submit" className="btnBook">
                   Book

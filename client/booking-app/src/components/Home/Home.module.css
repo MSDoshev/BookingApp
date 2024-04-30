@@ -21,12 +21,6 @@
   background: linear-gradient(transparent, #202834);
 }
 
-/* .btnContact {
-  background-color: orange;
-  padding: 5px 10px 5px 10px;
-  border-radius: 20px;
-  border: none;
-} */
 .btnContact a {
   background-color: orange;
   padding: 5px 10px 9px 10px;

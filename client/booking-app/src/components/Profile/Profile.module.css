@@ -27,7 +27,6 @@
 }
 .optionsMenu li:hover {
   color: orange;
-
 }
 .pageContent {
   display: flex;
@@ -49,4 +48,25 @@
   gap: 30px;
   color: #fff;
   padding-bottom: 10px;
+}
+
+@media (max-width: 850px) {
+  .profileContainer {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .optionsMenu {
+    border: none;
+    border-bottom: solid 1px #fff;
+    padding: 30px;
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+  }
+}
+@media (max-width: 500px) {
+  .pageContent {
+    flex-direction: column;
+  }
 }
