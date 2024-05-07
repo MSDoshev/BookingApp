@@ -1,10 +1,8 @@
 import { getDatabase, ref, get, set, push, remove } from "firebase/database";
 
-import { getAuth } from "firebase/auth";
-import { app } from "../firebase";
+import { app, auth } from "../firebase";
 import { userActions } from "./user-slice";
 
-const auth = getAuth();
 const database = getDatabase(app);
 export const getUserData = async () => {
   const user = auth.currentUser;
