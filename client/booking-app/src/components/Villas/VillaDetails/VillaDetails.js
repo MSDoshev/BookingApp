@@ -45,6 +45,14 @@ export const VillaDetails = () => {
       navigate("/login");
       return;
     }
+
+    const { dateFrom, dateTo } = reservationData;
+
+    if (new Date(dateTo) < new Date(dateFrom)) {
+      setFeedbackMessage("End date cannot be before start date!");
+      return;
+    }
+
     dispatch(addReservationForUser(reservationData))
       .then(() => {
         dispatch(uiActions.toggleFeedbackModal());
@@ -87,7 +95,7 @@ export const VillaDetails = () => {
     const startDate = new Date(dateFrom);
     const endDate = new Date(dateTo);
 
-    if (isNaN(startDate) || isNaN(endDate)) {
+    if (isNaN(startDate) || isNaN(endDate) || startDate > endDate) {
       return 0;
     }
 
