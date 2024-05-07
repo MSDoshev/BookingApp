@@ -4,9 +4,9 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-    <a href="https://bookingapp-effea.web.app" style="text-decoration: none; color: #fff; font-size: 3rem;">
-    BookingApp
-    </a>
+
+ # [BookingApp](https://bookingapp-effea.web.app)
+
 </div>
 
 ## About The Project
