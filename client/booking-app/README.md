@@ -1,18 +1,10 @@
 <a name="readme-top"></a>
 
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
 
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-    <a href="https://bookingapp-effea.web.app" style="text-decoration: none; color: #fff; font-size: 3rem; font-family: 'Great Vibes', cursive;">
+    <a href="https://bookingapp-effea.web.app" style="text-decoration: none; color: #fff; font-size: 3rem;">
     BookingApp
     </a>
 </div>
@@ -121,8 +113,6 @@ LinkedIn: [@mihail-doshev](https://www.linkedin.com/in/mihail-doshev-42a074201/)
 Project Link: [https://github.com/MSDoshev/BookingSite](https://github.com/MSDoshev/BookingSite)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
 <!-- Screenshots -->
 
