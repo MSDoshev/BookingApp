@@ -16,6 +16,10 @@
   max-width: 100%;
   overflow-x: hidden;
 }
+.villa {
+  position: relative;
+  overflow: hidden;
+}
 
 .villa:nth-child(odd) .vInfo {
   display: flex;
@@ -93,7 +97,7 @@
   display: block;
   flex-grow: 3;
   margin: 0 auto;
-  padding: 25px 150px 25px 50px;
+  padding: 25px 50px 25px 50px;
 }
 
 .vInfo div {
@@ -114,6 +118,9 @@
 }
 
 @media (max-width: 1600px) {
+  .villa{
+    margin-top: 20px;
+  }
   .villa:nth-child(odd) {
     flex-direction: column-reverse;
   }
@@ -157,24 +164,35 @@
 }
 
 @media (max-width: 700px) {
+
+  .villa:nth-child(odd) {
+    padding: 0;
+  }
+  .villa:nth-child(even) {
+    padding: 0;
+  }
   .title {
     height: 30vh;
     font-size: 1.5rem;
   }
+  .villaContent {
+    padding: 0;
+    margin: 0;
+  }
   .villa img {
-    max-width: 100%;
-    max-height: 300px;
-    height: auto;
+    position: relative;
+    width: fit-content;
     display: block;
-    margin: 0 auto;
+    margin: 0;
     object-fit: cover;
     padding: 0;
-    padding-top: 50px;
   }
 
   .info p {
-    align-items: center;
-    justify-content: center;
+    padding: 0;
+    margin: 0 auto;
+    width: 100%;
+    text-align: justify;
   }
   .villa:nth-child(odd) .vInfo {
     text-align: center;
@@ -190,11 +208,11 @@
     font-size: 1rem;
   }
   .bookBtn {
-    padding:8px 60px 8px 60px;
+    padding: 8px 60px 8px 60px;
   }
 }
 @media (max-width: 400px) {
   .bookBtn {
-    padding:8px 50px 8px 50px;
+    padding: 8px 50px 8px 50px;
   }
 }
