@@ -37,11 +37,7 @@ export const TheIsland = () => {
             quis felis ex. Sed et lobortis lacus. In gravida tristique tellus,
             suscipit malesuada nunc pharetra id. Etiam a arcu vehicula, faucibus
             lorem a, tristique nunc. Morbi ut aliquet sem. In mollis aliquet
-            lobortis. Vestibulum mollis ligula vitae placerat eleifend. Class
-            aptent taciti sociosqu ad litora torquent per conubia nostra, per
-            inceptos himenaeos. Donec gravida tellus non mollis lacinia. Proin
-            gravida ipsum quis risus viverra viverra. In vel justo a libero
-            mattis tempus eu ut leo.
+            lobortis. Vestibulum mollis ligula vitae placerat eleifend. 
           </p>
         </motion.div>
         <motion.img
@@ -80,11 +76,7 @@ export const TheIsland = () => {
             quis felis ex. Sed et lobortis lacus. In gravida tristique tellus,
             suscipit malesuada nunc pharetra id. Etiam a arcu vehicula, faucibus
             lorem a, tristique nunc. Morbi ut aliquet sem. In mollis aliquet
-            lobortis. Vestibulum mollis ligula vitae placerat eleifend. Class
-            aptent taciti sociosqu ad litora torquent per conubia nostra, per
-            inceptos himenaeos. Donec gravida tellus non mollis lacinia. Proin
-            gravida ipsum quis risus viverra viverra. In vel justo a libero
-            mattis tempus eu ut leo.
+            lobortis. Vestibulum mollis ligula vitae placerat eleifend.  
           </p>
         </motion.div>
       </div>
@@ -111,11 +103,7 @@ export const TheIsland = () => {
             quis felis ex. Sed et lobortis lacus. In gravida tristique tellus,
             suscipit malesuada nunc pharetra id. Etiam a arcu vehicula, faucibus
             lorem a, tristique nunc. Morbi ut aliquet sem. In mollis aliquet
-            lobortis. Vestibulum mollis ligula vitae placerat eleifend. Class
-            aptent taciti sociosqu ad litora torquent per conubia nostra, per
-            inceptos himenaeos. Donec gravida tellus non mollis lacinia. Proin
-            gravida ipsum quis risus viverra viverra. In vel justo a libero
-            mattis tempus eu ut leo.
+            lobortis. Vestibulum mollis ligula vitae placerat eleifend.  
           </p>
         </motion.div>
         <motion.img
